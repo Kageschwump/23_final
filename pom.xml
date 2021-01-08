@@ -8,5 +8,34 @@
     <artifactId>23_final</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>Matador_GUI-repository</id>
+            <url>https://github.com/diplomit-dtu/Matador_GUI/raw/repository</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>diplomitdtu</groupId>
+            <artifactId>matadorgui</artifactId>
+            <version>3.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 </project>
