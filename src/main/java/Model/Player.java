@@ -23,6 +23,28 @@ public class Player {
         account = new Account(startBalance);
     }
 
+    public void updatePlacement(int newPlacement) {
+        int rest;
+
+        if(placement+newPlacement >= 40){
+            rest = placement + newPlacement - 40;
+
+            setPlacement(rest);
+            account.updateScore(4000);
+            player.setBalance(account.getBalance());
+        }
+        else
+            placement += newPlacement;
+    }
+
+    public void setPlacement(int placement)
+    {
+        this.placement = placement;
+    }
+
+
+
+
     public String getName(){return name;}
 
     public int getAge() {

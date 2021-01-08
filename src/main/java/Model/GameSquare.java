@@ -1,7 +1,18 @@
 package Model;
 
-public abstract class GameSquare {
+import gui_fields.GUI_Field;
 
-    public abstract void squareFunction();
+import java.awt.*;
+
+public abstract class GameSquare {
+    public abstract void function(Player player);
+
+    public abstract String getName();
+
+    public abstract GUI_Field getGuiField();
+
+    public abstract String getDesc();
+
+    public abstract Color getColor();
 }
 
