@@ -1,8 +1,10 @@
 package Model;
 
+import Squaretype.PropertySquare;
+
 public class Account {
     private int balance;
-    private properties Property;
+    private PropertySquare Property;
 
     public Account(int balance){
         this.balance = balance;
