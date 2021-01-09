@@ -15,6 +15,7 @@ public class ChanceCardSquare extends GameSquare {
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
 
+
     @Override
     public void function(Player player) {
 
