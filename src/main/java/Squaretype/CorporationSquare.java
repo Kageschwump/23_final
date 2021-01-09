@@ -8,6 +8,12 @@ import java.awt.*;
 
 public class CorporationSquare extends GameSquare {
 
+    private String name = "Virksomhed";
+    private String description = "Snup en sodavand!";
+    private Color bgColor = Color.orange;
+    private Color fgColor = Color.black;
+    private GUI_Field fieldType;
+
     @Override
     public void function(Player player) {
 
@@ -20,16 +26,16 @@ public class CorporationSquare extends GameSquare {
 
     @Override
     public GUI_Field getGuiField() {
-        return null;
+        return fieldType;
     }
 
     @Override
     public String getDesc() {
-        return null;
+        return description;
     }
 
     @Override
     public Color getColor() {
-        return null;
+        return bgColor;
     }
 }
