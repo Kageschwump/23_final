@@ -32,18 +32,18 @@ public class GameBoard {
         squares[1] = new PropertySquare("Rødovrevej",1200,50,"sut gren", Color.blue, Color.black);
         squares[2] = new ChanceCardSquare(chanceCardHandler);
         squares[3] = new PropertySquare("Hvidovrevej",1200,50,"sut gren", Color.blue, Color.black);
-        squares[4] = new Taxsquare();
-        squares[5] = new CorporationSquare();
+        squares[4] = new TaxSquare();
+        squares[5] = new ShippingSquare("Scandlines", "500");
         squares[6] = new PropertySquare("Roskildevej",2000,100,"sut gren", Color.orange, Color.black);
         squares[7] = new ChanceCardSquare(chanceCardHandler);
         squares[8] = new PropertySquare("Valby Langgade",2000,100,"sut gren", Color.orange, Color.black);
         squares[9] = new PropertySquare("Allégade",2400,150,"sut gren", Color.orange, Color.black);
         squares[10] = new VisitJailSquare();
         squares[11] = new PropertySquare("Frederiksberg Allé",2800,200,"sut gren", Color.green, Color.black);
-        squares[12] = new CorporationSquare();
+        squares[12] = new BrewerySquare("Squash", "100");
         squares[13] = new PropertySquare("Bülowsvej",2800,200,"sut gren", Color.green, Color.black);
         squares[14] = new PropertySquare("Gl. Kongevej",3200,250,"sut gren", Color.green, Color.black);
-        squares[15] = new CorporationSquare();
+        squares[15] = new ShippingSquare("Mols-Linien", "500");
         squares[16] = new PropertySquare("Bernstorffsvej",3600,300,"sut gren", Color.gray, Color.black);
         squares[17] = new ChanceCardSquare(chanceCardHandler);
         squares[18] = new PropertySquare("Hellerupvej",3600,300,"sut gren", Color.gray, Color.black);
@@ -53,20 +53,20 @@ public class GameBoard {
         squares[22] = new ChanceCardSquare(chanceCardHandler);
         squares[23] = new PropertySquare("Østerbrogade",4400,350,"sut gren", Color.red, Color.black);
         squares[24] = new PropertySquare("Grønningen",4800,400,"sut gren", Color.red, Color.black);
-        squares[25] = new CorporationSquare();
+        squares[25] = new ShippingSquare("Scandlines", "500");
         squares[26] = new PropertySquare("Bredgade",5200,450,"sut gren", Color.white, Color.black);
         squares[27] = new PropertySquare("Kgs. Nytorv",5200,450,"sut gren", Color.white, Color.black);
-        squares[28] = new CorporationSquare();
+        squares[28] = new BrewerySquare("CocaCola", "100");
         squares[29] = new PropertySquare("Østergade",5600,500,"sut gren", Color.white, Color.black);
         squares[30] = new PrisonSquare();
         squares[31] = new PropertySquare("Amagertorv",6000,550,"sut gren", Color.yellow, Color.black);
         squares[32] = new PropertySquare("Vimmelskaftet",6000,550,"sut gren", Color.yellow, Color.black);
         squares[33] = new ChanceCardSquare(chanceCardHandler);
         squares[34] = new PropertySquare("Nygade",6400,600,"sut gren", Color.yellow, Color.black);
-        squares[35] = new CorporationSquare();
+        squares[35] = new ShippingSquare("Scandlines", "500");
         squares[36] = new ChanceCardSquare(chanceCardHandler);
         squares[37] = new PropertySquare("Frederiksberggade",7000,700,"sut gren", Color.magenta, Color.black);
-        squares[38] = new Taxsquare();
+        squares[38] = new TaxSquare();
         squares[39] = new PropertySquare("Rådhuspladsen",8000,1000,"sut gren", Color.magenta, Color.black);
     }
 

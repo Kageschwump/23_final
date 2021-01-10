@@ -1,7 +1,9 @@
 package Squaretype;
 
+import Controller.ChancecardHandler;
 import Model.GameSquare;
 import Model.Player;
+import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
@@ -14,6 +16,13 @@ public class ChanceCardSquare extends GameSquare {
     private Color bgColor = Color.orange;
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
+    ChancecardHandler chancecardHandler;
+
+    public ChanceCardSquare(ChancecardHandler chanceCardHandler)
+    {
+        fieldType = new GUI_Chance(name,subText,description,bgColor,fgColor);
+        this.chancecardHandler = chanceCardHandler;
+    }
 
 
     @Override

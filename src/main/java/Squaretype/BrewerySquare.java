@@ -2,22 +2,21 @@ package Squaretype;
 
 import Model.GameSquare;
 import Model.Player;
-import gui_fields.GUI_Chance;
+import gui_fields.GUI_Brewery;
 import gui_fields.GUI_Field;
-import gui_fields.GUI_Tax;
+import gui_fields.GUI_Shipping;
 
 import java.awt.*;
 
-public class TaxSquare extends GameSquare {
-    private String name = "Skat";
-    private String description = "Husk at betale skat!";
-    private Color bgColor = Color.white;
+public class BrewerySquare extends GameSquare {
+    private String name = "Virksomhed";
+    private String description = "Snup en sodavand!";
+    private Color bgColor = Color.pink;
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
 
-    public TaxSquare()
-    {
-        fieldType = new GUI_Tax(name,"",description,bgColor,fgColor);
+    public BrewerySquare(String name, String rent){
+        fieldType = new GUI_Brewery( "default", name ,"",description, rent,bgColor,fgColor);
     }
 
     @Override
@@ -32,16 +31,16 @@ public class TaxSquare extends GameSquare {
 
     @Override
     public GUI_Field getGuiField() {
-        return fieldType;
+        return null;
     }
 
     @Override
     public String getDesc() {
-        return description;
+        return null;
     }
 
     @Override
     public Color getColor() {
-        return bgColor;
+        return null;
     }
 }
