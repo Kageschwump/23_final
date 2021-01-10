@@ -1,5 +1,7 @@
 package Squaretype;
 
+import Model.ChanceCard;
+import Model.Chancecards.JailCard;
 import Controller.ChancecardHandler;
 import Model.GameSquare;
 import Model.Player;
@@ -22,6 +24,12 @@ public class ChanceCardSquare extends GameSquare {
     {
         fieldType = new GUI_Chance(name,subText,description,bgColor,fgColor);
         this.chancecardHandler = chanceCardHandler;
+    }
+    private ChanceCard[] cards;
+
+    public void createCards()
+    {
+
     }
 
 
