@@ -1,6 +1,16 @@
 package Model;
 
+import Controller.ChancecardHandler;
+
 public class RuleSet {
+
+    GameBoard gameBoard;
+    ChancecardHandler chancecardHandler;
+
+    public RuleSet(GameBoard gameBoard, ChancecardHandler chanceCardHandler){
+        this.chancecardHandler = chanceCardHandler;
+        this.gameBoard = gameBoard;
+    }
 
     public boolean gameOver()
     {

@@ -25,4 +25,12 @@ public class ChancecardHandler
         cards[randomCard].cardFunction(player);
     }
 
+    public void setGameBoard(GameBoard gameBoard) {
+        this.gameBoard = gameBoard;
+    }
+
+    public void setRuleSet(RuleSet ruleSet) {
+        this.ruleSet = ruleSet;
+    }
+
 }

@@ -1,13 +1,20 @@
 package Model;
 
+import Controller.ChancecardHandler;
 import Squaretype.*;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
 
 public class GameBoard {
-    private GUI_Field[] fields = new GUI_Field[24];
-    private GameSquare[] squares = new GameSquare[24];
+    private GUI_Field[] fields = new GUI_Field[40];
+    private GameSquare[] squares = new GameSquare[40];
+    private ChancecardHandler chanceCardHandler;
+
+    public GameBoard(ChancecardHandler chanceCardHandler)
+    {
+        this.chanceCardHandler = chanceCardHandler;
+    }
 
     public GUI_Field[] createFields()
     {
@@ -61,6 +68,11 @@ public class GameBoard {
         squares[37] = new PropertySquare("Frederiksberggade",7000,700,"sut gren", Color.magenta, Color.black);
         squares[38] = new Taxsquare();
         squares[39] = new PropertySquare("Rådhuspladsen",8000,1000,"sut gren", Color.magenta, Color.black);
+    }
+
+    public ChancecardHandler getChanceCardHandler()
+    {
+        return chanceCardHandler;
     }
 
 
