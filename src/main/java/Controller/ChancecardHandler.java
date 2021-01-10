@@ -11,6 +11,7 @@ public class ChancecardHandler
     private ChanceCard[] cards;
     private GameBoard gameBoard;
     private RuleSet ruleSet;
+    private GUIHandler guiHandler;
 
 
     public void createCards()
@@ -31,6 +32,14 @@ public class ChancecardHandler
 
     public void setRuleSet(RuleSet ruleSet) {
         this.ruleSet = ruleSet;
+    }
+
+    public void setGuiHandler(GUIHandler guiHandler) {
+        this.guiHandler = guiHandler;
+    }
+
+    public GUIHandler getGuiHandler() {
+        return guiHandler;
     }
 
 }

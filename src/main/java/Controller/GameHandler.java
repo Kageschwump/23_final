@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.Dice;
-import Model.GameBoard;
-import Model.RuleSet;
-import Model.ShuffleCup;
+import Model.*;
 
 public class GameHandler {
 
@@ -12,6 +9,7 @@ public class GameHandler {
     private PlayerHandler playerHandler;
     private RuleSet ruleset;
     private ChancecardHandler chanceCardHandler;
+    private GUIHandler guiHandler;
 
     public GameHandler(){
         this.chanceCardHandler = new ChancecardHandler();
@@ -20,37 +18,61 @@ public class GameHandler {
         this.ruleset = new RuleSet(gameBoard, chanceCardHandler);
     }
 
-    public void round()
+    public void round(Player player)
     {
-
+        int facevalue = shuffleCup.roll();
+        guiHandler.playerRoll(player.getName());
+        guiHandler.getRoll(facevalue);
+        guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
+        playerHandler.updatePlacement(facevalue, player);
+        if(gameBoard.getSquares()[player.getPlacement()]==gameBoard.getSquares()[40])
+        {
+            gameBoard.getSquares()[player.getPlacement()].function(player);
+            guiHandler.printMessage(gameBoard.getSquares()[40].getDesc());
+            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),true);
+        }
+        else {
+            gameBoard.getSquares()[player.getPlacement()].function(player);
+            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(), true);
+            guiHandler.printMessage(gameBoard.getSquares()[player.getPlacement()].getDesc());
+        }
     }
 
-    public void startgame()
+    public void startGame()
     {
         gameBoard.getChanceCardHandler().setGameBoard(gameBoard);
         gameBoard.getChanceCardHandler().setRuleSet(ruleset);
         gameBoard.createGameBoard();
+        guiHandler = new GUIHandler(gameBoard.createFields());
+        gameBoard.getChanceCardHandler().setGuiHandler(guiHandler);
+        gameBoard.getChanceCardHandler().createCards();
+        playerSetup(guiHandler.playerCount());
+        int starter = ruleset.determineStarter(playerHandler.getPlayers());
+        guiHandler.printMessage(playerHandler.getPlayers()[starter].getName() + " starter");
 
+        for(int i = 0; i < playerHandler.getPlayers().length; i++) {
+            gameBoard.getFields()[0].setCar(playerHandler.getPlayers()[i].getGuiPlayer(),true);
+        }
+
+        while (!ruleset.gameOver(playerHandler.getPlayers())) {
+
+            round(playerHandler.getPlayers()[starter]);
+            starter++;
+            if(starter >= playerHandler.getPlayers().length)
+            {
+                starter = 0;
+            }
+        }
+        // Determine winner metoden skal laves om
+        guiHandler.printMessage(ruleset.determineWinner(playerHandler.getPlayers()).getName() + " vandt!!!");
 
     }
 
     public void playerSetup(int playerCount) {
         playerHandler = new PlayerHandler(playerCount);
-        int startBalance;
-
-        switch (playerCount) {
-            case 3:
-                startBalance = 18;
-                break;
-            case 4:
-                startBalance = 16;
-                break;
-            default:
-                startBalance = 20;
-        }
 
         for (int i = 0; i < playerCount; i++) {
-            playerHandler.getPlayers()[i] = playerHandler.createPlayer(i, guiHandler.playerString("Navn"), guiHandler.playerInt("Alder"), guiHandler.guiCreateCar(), startBalance);
+            playerHandler.getPlayers()[i] = playerHandler.createPlayer(i, guiHandler.playerString("Navn"), guiHandler.playerInt("Alder"), guiHandler.guiCreateCar(), 30000);
             guiHandler.guiAddPlayer(playerHandler.getPlayers()[i].getGuiPlayer());
 
         }

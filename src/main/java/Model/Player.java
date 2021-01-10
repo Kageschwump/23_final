@@ -42,8 +42,11 @@ public class Player {
         this.placement = placement;
     }
 
+    public int getPlacement(){
+        return placement;
+    }
 
-
+    public GUI_Player getGuiPlayer(){return player;}
 
     public String getName(){return name;}
 

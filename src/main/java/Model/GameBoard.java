@@ -75,6 +75,15 @@ public class GameBoard {
         return chanceCardHandler;
     }
 
+    public GUI_Field[] getFields() {
+        return fields;
+    }
+
+    public GameSquare[] getSquares() {
+        return squares;
+    }
+
+
 
 
 

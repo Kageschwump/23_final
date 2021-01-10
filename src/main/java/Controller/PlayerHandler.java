@@ -32,6 +32,10 @@ public class PlayerHandler {
         return givenPlayer;
     }
 
+    public void updatePlacement(int newPlacement, Player player){
+        player.updatePlacement(newPlacement);
+    }
+
 
 
 }
