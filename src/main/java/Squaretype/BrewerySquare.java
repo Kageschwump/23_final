@@ -31,16 +31,16 @@ public class BrewerySquare extends GameSquare {
 
     @Override
     public GUI_Field getGuiField() {
-        return null;
+        return fieldType;
     }
 
     @Override
     public String getDesc() {
-        return null;
+        return description;
     }
 
     @Override
     public Color getColor() {
-        return null;
+        return bgColor;
     }
 }
