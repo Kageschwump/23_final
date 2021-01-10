@@ -23,7 +23,7 @@ public class GUIHandler {
 
     public int playerCount()
     {
-        return gui.getUserInteger("Hvor mange spillere?",2,4);
+        return gui.getUserInteger("Hvor mange spillere?",3,6);
     }
 
     public String playerString(String msg)

@@ -7,7 +7,7 @@ import gui_fields.GUI_Refuge;
 
 import java.awt.*;
 
-public class ParkingSqaure extends GameSquare {
+public class ParkingSquare extends GameSquare {
 
     private String name = "Gratis Parkering";
     private String description = "Parker her og tag en pause";
@@ -15,7 +15,7 @@ public class ParkingSqaure extends GameSquare {
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
 
-    public void ParkingSquare()
+    public ParkingSquare()
     {
         fieldType = new GUI_Refuge("default",name,"Parkering",description,bgColor,fgColor);
     }

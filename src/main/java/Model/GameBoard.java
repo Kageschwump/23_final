@@ -48,7 +48,7 @@ public class GameBoard {
         squares[17] = new ChanceCardSquare(chanceCardHandler);
         squares[18] = new PropertySquare("Hellerupvej",3600,300,"sut gren", Color.gray, Color.black);
         squares[19] = new PropertySquare("Strandvejen",4000,350,"sut gren", Color.gray, Color.black);
-        squares[20] = new ParkingSqaure();
+        squares[20] = new ParkingSquare();
         squares[21] = new PropertySquare("Trianglen",4400,350,"sut gren", Color.red, Color.black);
         squares[22] = new ChanceCardSquare(chanceCardHandler);
         squares[23] = new PropertySquare("Østerbrogade",4400,350,"sut gren", Color.red, Color.black);
