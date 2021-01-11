@@ -9,28 +9,28 @@ import gui_fields.GUI_Street;
 import java.awt.*;
 
 public class PropertySquare extends GameSquare {
-    private int id;
     private int price;
     private String description;
     private boolean owned;
-    private Player owner = null;
+    private Player owner;
     private String name;
     private int rent;
-
-
-    private Color color1;
-    private Color color2;
+    private Color bgColor;
+    private Color fgColor;
     private GUI_Ownable fieldType;
+    private int houses;
+    private boolean hotel;
 
-    public PropertySquare(String name, int price, int rent, String description, Color color1, Color color2) {
+
+    public PropertySquare(String name, int price, int rent, String description, Color bgColor, Color fgColor) {
         this.name = name;
         this.price = price;
         String priceString = Integer.toString(price, rent);
         this.description = description;
-        this.color1 = color1;
-        this.color2 = color2;
+        this.bgColor = bgColor;
+        this.fgColor = fgColor;
 
-        fieldType = new GUI_Street(name, priceString, description, priceString, color1, color2);
+        fieldType = new GUI_Street(name, priceString, description, priceString, bgColor, fgColor);
     }
 
     //Lav Player-klassen, og find ud af hvilken color der skal bruges i getColor super-klassen//
@@ -76,8 +76,18 @@ public class PropertySquare extends GameSquare {
 
     @Override
     public Color getColor() {
-        return color2;
+        return fgColor;
     }
+
+
+    public int getHouses() {
+        return houses;
+    }
+
+    public boolean isHotel() {
+        return hotel;
+    }
+
 
 }
 
