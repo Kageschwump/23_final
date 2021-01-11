@@ -20,15 +20,17 @@ public class GameHandler {
 
     public void round(Player player)
     {
-        int facevalue = shuffleCup.roll();
+        shuffleCup.roll();
+        int faceValue1 = shuffleCup.getDice1().getFaceValue();
+        int faceValue2 = shuffleCup.getDice2().getFaceValue();
         guiHandler.playerRoll(player.getName());
-        guiHandler.getRoll(facevalue);
+        guiHandler.getRoll(faceValue1, faceValue2);
         guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
-        playerHandler.updatePlacement(facevalue, player);
-        if(gameBoard.getSquares()[player.getPlacement()]==gameBoard.getSquares()[40])
+        playerHandler.updatePlacement(shuffleCup.getValue(), player);
+        if(gameBoard.getSquares()[player.getPlacement()]==gameBoard.getSquares()[30])
         {
             gameBoard.getSquares()[player.getPlacement()].function(player);
-            guiHandler.printMessage(gameBoard.getSquares()[40].getDesc());
+            guiHandler.printMessage(gameBoard.getSquares()[30].getDesc());
             gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),true);
         }
         else {

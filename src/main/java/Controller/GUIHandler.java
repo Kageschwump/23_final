@@ -23,7 +23,7 @@ public class GUIHandler {
 
     public int playerCount()
     {
-        return gui.getUserInteger("Hvor mange spillere?",2,4);
+        return gui.getUserInteger("Hvor mange spillere?",3,6);
     }
 
     public String playerString(String msg)
@@ -99,8 +99,8 @@ public class GUIHandler {
         gui.getUserButtonPressed("Din tur " + playername + "!", "Rul");
     }
 
-    public void getRoll(int faceValue){
-        gui.setDie(faceValue);
+    public void getRoll(int faceValue1, int faceValue2){
+        gui.setDice(faceValue1, faceValue2);
     }
 
     public void resetCars(Player player, Player[] players, GUI_Field gui_field)

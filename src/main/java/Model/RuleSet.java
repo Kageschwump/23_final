@@ -12,10 +12,18 @@ public class RuleSet {
         this.gameBoard = gameBoard;
     }
 
-    public boolean gameOver()
+    public boolean gameOver(Player[] players)
     {
-
-        return false;
+        boolean isGameOver = false;
+        for(int i = 0; i < players.length; i++)
+        {
+            if (players[i].getAccount().getBalance() < 0)
+            {
+                isGameOver = true;
+                break;
+            }
+        }
+        return isGameOver;
     }
 
     public int determineStarter(Player[] players)
@@ -32,4 +40,16 @@ public class RuleSet {
         return index;
     }
 
+    public Player determineWinner(Player[] players){
+        Player winner = null;
+        int max = 0;
+
+        for (int i = 0; i < players.length; i++){
+            if (players[i].getAccount().getBalance() > max){
+                winner = players[i];
+                max = players[i].getAccount().getBalance();
+            }
+        }
+        return winner;
+    }
 }

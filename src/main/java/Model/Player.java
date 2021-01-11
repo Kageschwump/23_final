@@ -54,4 +54,8 @@ public class Player {
         return age;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
 }
