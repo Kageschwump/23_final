@@ -27,5 +27,8 @@ public class ShuffleCup {
         return dice2;
     }
 
+    public int getValue(){
+        return value;
+    }
 
 }
