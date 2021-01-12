@@ -62,7 +62,7 @@ public class PropertySquare extends GameSquare {
             owner.getAccount().updateScore(price);
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
         }
-        return "Shit";
+        return "PropertySquare";
     }
 
     public boolean propertySquareNotOwned() {

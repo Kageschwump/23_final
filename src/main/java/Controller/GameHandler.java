@@ -28,6 +28,19 @@ public class GameHandler {
         int faceValue2 = shuffleCup.getDice2().getFaceValue();
         guiHandler.playerRoll(player.getName());
         guiHandler.getRoll(faceValue1, faceValue2);
+        int facevalue = faceValue1 + faceValue2;
+        playerHandler.updatePlacement(facevalue, player);
+        if(gameBoard.getSquares()[player.getPlacement()]==gameBoard.getSquares()[18])
+        {
+            gameBoard.getSquares()[player.getPlacement()].function(player);
+            guiHandler.printMessage(gameBoard.getSquares()[18].getDesc());
+            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),true);
+        }
+        else {
+            gameBoard.getSquares()[player.getPlacement()].function(player);
+            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(), true);
+            guiHandler.printMessage(gameBoard.getSquares()[player.getPlacement()].getDesc());
+        }
 
     }
 
