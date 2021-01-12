@@ -2,6 +2,8 @@ package Squaretype;
 
 import Model.ChanceCard;
 import Model.Chancecards.JailCard;
+import Model.Chancecards.PayCard;
+import Model.Chancecards.PriceCard;
 import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Field;
@@ -20,16 +22,20 @@ public class ChanceCardSquare extends GameSquare {
 
     public ChanceCardSquare()
     {
-
+        createChanceCards();
     }
 
     public void createChanceCards()
     {
-
+        chanceCards[0] = new PriceCard("Oliepriser","Priser stiger", "Oliepriserne er steget, og du skal betale 500 kr pr hus og 2000 kr pr hotel",500,2000);
+        chanceCards[1] = new PriceCard("Ejendomsskat","Priser stiger", "Ejendomsskatten er steget. Ekstraudgifterne er: 800 kr pr hus, 2300 kr pr hotel",800,2300);
+        chanceCards[2] = new PayCard("Fuldt stop","Betal","De har kørt frem for 'fuldt stop', betal 1000 kr i bøde", -1000);
+        chanceCards[3] = new PayCard("Fuldt stop","Betal","De har kørt frem for 'fuldt stop', betal 1000 kr i bøde", -1000);
     }
 
     @Override
-    public void function(Player player) {
+    public void function(Player player)
+    {
 
     }
 
