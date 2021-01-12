@@ -32,7 +32,7 @@ public class PriceCard extends ChanceCard {
         int numOfHouses = 0;
         int numOfHotels = 0;
         int value;
-
+/*
         for (int i = 0; i < player.getAccount().getProperties().length; i++)
         {
             numOfHouses += player.getAccount().getProperties()[i].getHouses();
@@ -45,6 +45,7 @@ public class PriceCard extends ChanceCard {
 
         value = (pricePrHouse * numOfHouses) + (pricePrHotel * numOfHotels);
         player.getAccount().updateScore((-1) * value);
+ */
     }
 
     @Override
