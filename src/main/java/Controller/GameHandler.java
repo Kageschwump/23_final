@@ -14,7 +14,9 @@ public class GameHandler {
     public GameHandler(){
         this.chanceCardHandler = new ChancecardHandler();
         this.shuffleCup = new ShuffleCup();
-        this.gameBoard = new GameBoard(guiHandler);
+        this.gameBoard = new GameBoard();
+        gameBoard.createGameBoard();
+        guiHandler = new GUIHandler(gameBoard.createFields());
         this.ruleset = new RuleSet(gameBoard, chanceCardHandler);
 
     }
@@ -26,26 +28,11 @@ public class GameHandler {
         int faceValue2 = shuffleCup.getDice2().getFaceValue();
         guiHandler.playerRoll(player.getName());
         guiHandler.getRoll(faceValue1, faceValue2);
-        guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
-        playerHandler.updatePlacement(shuffleCup.getValue(), player);
-        if(gameBoard.getSquares()[player.getPlacement()]==gameBoard.getSquares()[30])
-        {
-            gameBoard.getSquares()[player.getPlacement()].function(player);
-            guiHandler.printMessage(gameBoard.getSquares()[30].getDesc());
-            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),true);
-        }
-        else {
-            gameBoard.getSquares()[player.getPlacement()].function(player);
-            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(), true);
-            guiHandler.printMessage(gameBoard.getSquares()[player.getPlacement()].getDesc());
-        }
+
     }
 
     public void startGame()
     {
-        gameBoard.createGameBoard();
-        guiHandler = new GUIHandler(gameBoard.createFields());
-        this.guiHandler = guiHandler;
         playerSetup(guiHandler.playerCount());
         int starter = ruleset.determineStarter(playerHandler.getPlayers());
         guiHandler.printMessage(playerHandler.getPlayers()[starter].getName() + " starter");

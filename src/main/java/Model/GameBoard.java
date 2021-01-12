@@ -12,9 +12,9 @@ public class GameBoard {
     private GameSquare[] squares = new GameSquare[40];
     private GUIHandler guiHandler;
 
-    public GameBoard(GUIHandler guiHandler)
+    public GameBoard()
     {
-        this.guiHandler = guiHandler;
+
     }
 
     public GUI_Field[] createFields()
@@ -79,6 +79,7 @@ public class GameBoard {
     public GameSquare[] getSquares() {
         return squares;
     }
+
 
 
 

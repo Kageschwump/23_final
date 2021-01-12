@@ -19,8 +19,8 @@ public class PrisonSquare extends GameSquare {
     public PrisonSquare(){ fieldType = new GUI_Jail("default", name, "Gå i fængsel", description, bgColor, fgColor); }
 
     @Override
-    public void function(Player player) {
-
+    public String function(Player player) {
+        return "PrisonSquare";
     }
 
     @Override

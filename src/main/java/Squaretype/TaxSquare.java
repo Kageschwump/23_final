@@ -21,8 +21,8 @@ public class TaxSquare extends GameSquare {
     }
 
     @Override
-    public void function(Player player) {
-
+    public String function(Player player) {
+        return "TaxSquare";
     }
 
     @Override

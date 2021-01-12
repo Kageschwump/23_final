@@ -41,7 +41,7 @@ public class PropertySquare extends GameSquare {
     //Lav Player-klassen, og find ud af hvilken color der skal bruges i getColor super-klassen//
 
     @Override
-    public void function(Player player) {
+    public String function(Player player) {
         String selection;
         if (propertySquareNotOwned()) {
             selection = guiHandler.getGui().getUserSelection("vil du købe denne ejendom?", "ja", "nej");
@@ -62,6 +62,7 @@ public class PropertySquare extends GameSquare {
             owner.getAccount().updateScore(price);
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
         }
+        return "Shit";
     }
 
     public boolean propertySquareNotOwned() {

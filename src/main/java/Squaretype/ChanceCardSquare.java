@@ -36,8 +36,8 @@ public class ChanceCardSquare extends GameSquare {
     }
 
     @Override
-    public void function(Player player) {
-
+    public String function(Player player) {
+        return "ChanceCardSquare";
     }
 
     @Override

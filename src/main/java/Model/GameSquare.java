@@ -5,7 +5,7 @@ import gui_fields.GUI_Field;
 import java.awt.*;
 
 public abstract class GameSquare {
-    public abstract void function(Player player);
+    public abstract String function(Player player);
 
     public abstract String getName();
 

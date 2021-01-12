@@ -5,6 +5,7 @@ import Model.Player;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Refuge;
 
+import javax.print.attribute.standard.PresentationDirection;
 import java.awt.*;
 
 public class ParkingSquare extends GameSquare {
@@ -21,9 +22,9 @@ public class ParkingSquare extends GameSquare {
     }
 
     @Override
-    public void function(Player player)
+    public String function(Player player)
     {
-
+        return "ParkingSquare";
     }
 
     @Override

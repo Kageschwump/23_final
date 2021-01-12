@@ -20,8 +20,8 @@ public class VisitJailSquare extends GameSquare {
     }
 
     @Override
-    public void function(Player player) {
-
+    public String function(Player player) {
+        return "VisitJailSquare";
     }
 
     @Override
