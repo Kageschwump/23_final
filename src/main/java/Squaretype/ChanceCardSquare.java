@@ -6,6 +6,7 @@ import Model.Chancecards.PayCard;
 import Model.Chancecards.PriceCard;
 import Model.GameSquare;
 import Model.Player;
+import gui_fields.GUI_Chance;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
@@ -22,6 +23,7 @@ public class ChanceCardSquare extends GameSquare {
 
     public ChanceCardSquare()
     {
+        fieldType = new GUI_Chance("?", "Chancen", "prøv lykken, tag et kort", bgColor, fgColor);
         createChanceCards();
     }
 
@@ -34,8 +36,7 @@ public class ChanceCardSquare extends GameSquare {
     }
 
     @Override
-    public void function(Player player)
-    {
+    public void function(Player player) {
 
     }
 

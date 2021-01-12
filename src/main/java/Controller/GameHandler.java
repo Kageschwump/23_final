@@ -14,8 +14,9 @@ public class GameHandler {
     public GameHandler(){
         this.chanceCardHandler = new ChancecardHandler();
         this.shuffleCup = new ShuffleCup();
-        this.gameBoard = new GameBoard(chanceCardHandler);
+        this.gameBoard = new GameBoard(guiHandler);
         this.ruleset = new RuleSet(gameBoard, chanceCardHandler);
+
     }
 
     public void round(Player player)
@@ -42,12 +43,9 @@ public class GameHandler {
 
     public void startGame()
     {
-        gameBoard.getChanceCardHandler().setGameBoard(gameBoard);
-        gameBoard.getChanceCardHandler().setRuleSet(ruleset);
         gameBoard.createGameBoard();
         guiHandler = new GUIHandler(gameBoard.createFields());
-        gameBoard.getChanceCardHandler().setGuiHandler(guiHandler);
-        gameBoard.getChanceCardHandler().createCards();
+        this.guiHandler = guiHandler;
         playerSetup(guiHandler.playerCount());
         int starter = ruleset.determineStarter(playerHandler.getPlayers());
         guiHandler.printMessage(playerHandler.getPlayers()[starter].getName() + " starter");

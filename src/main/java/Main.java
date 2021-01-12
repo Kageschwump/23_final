@@ -1,3 +1,4 @@
+import Controller.GUIHandler;
 import Controller.GameHandler;
 
 public class Main {

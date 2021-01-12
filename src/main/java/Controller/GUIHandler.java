@@ -120,6 +120,10 @@ public class GUIHandler {
 
     }
 
+    public GUI getGui(){
+        return gui;
+    }
+
 
 
 }
