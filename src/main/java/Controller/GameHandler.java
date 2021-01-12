@@ -32,12 +32,12 @@ public class GameHandler {
         playerHandler.updatePlacement(facevalue, player);
         if(gameBoard.getSquares()[player.getPlacement()]==gameBoard.getSquares()[18])
         {
-            gameBoard.getSquares()[player.getPlacement()].function(player);
+            gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
             guiHandler.printMessage(gameBoard.getSquares()[18].getDesc());
             gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),true);
         }
         else {
-            gameBoard.getSquares()[player.getPlacement()].function(player);
+            gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
             gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(), true);
             guiHandler.printMessage(gameBoard.getSquares()[player.getPlacement()].getDesc());
         }

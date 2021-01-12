@@ -1,5 +1,6 @@
 package Squaretype;
 
+import Controller.GUIHandler;
 import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Brewery;
@@ -20,8 +21,8 @@ public class BrewerySquare extends GameSquare {
     }
 
     @Override
-    public String function(Player player) {
-        return "BrewerySquare";
+    public void function(Player player, GUIHandler guiHandler) {
+
     }
 
     @Override

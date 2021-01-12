@@ -1,5 +1,6 @@
 package Squaretype;
 
+import Controller.GUIHandler;
 import Model.ChanceCard;
 import Model.Chancecards.*;
 import Model.GameSquare;
@@ -17,7 +18,7 @@ public class ChanceCardSquare extends GameSquare {
     private Color bgColor = Color.orange;
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
-    private ChanceCard[] chanceCards = new ChanceCard[45];
+    private ChanceCard[] chanceCards = new ChanceCard[46];
 
     public ChanceCardSquare()
     {
@@ -78,8 +79,8 @@ public class ChanceCardSquare extends GameSquare {
     }
 
     @Override
-    public String function(Player player) {
-        return "ChanceCardSquare";
+    public void function(Player player, GUIHandler guiHandler) {
+
     }
 
     @Override

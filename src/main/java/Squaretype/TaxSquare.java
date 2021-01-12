@@ -1,5 +1,6 @@
 package Squaretype;
 
+import Controller.GUIHandler;
 import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Chance;
@@ -21,8 +22,8 @@ public class TaxSquare extends GameSquare {
     }
 
     @Override
-    public String function(Player player) {
-        return "TaxSquare";
+    public void function(Player player, GUIHandler guiHandler) {
+
     }
 
     @Override

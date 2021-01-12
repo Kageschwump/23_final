@@ -1,11 +1,12 @@
 package Model;
 
+import Controller.GUIHandler;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
 
 public abstract class GameSquare {
-    public abstract String function(Player player);
+    public abstract void function(Player player, GUIHandler guiHandler);
 
     public abstract String getName();
 
