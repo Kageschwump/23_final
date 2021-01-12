@@ -4,30 +4,31 @@ import Squaretype.PropertySquare;
 
 public class Account {
     private int balance;
-    private PropertySquare[] properties;
+    private String[] properties;
     private boolean jailfree;
 
     public Account(int balance){
         this.balance = balance;
-        properties = new PropertySquare[1];
+        properties = new String[1];
     }
 
-    public void addProperty(PropertySquare property)
+    public void addProperty(String propertyName)
     {
-        PropertySquare[] arrayNew = new PropertySquare[properties.length + 1];
+        String[] arrayNew = new String[properties.length + 1];
         for (int i = 0; i < properties.length; i++)
         {
             arrayNew[i] = properties[i];
         }
+        arrayNew[arrayNew.length] = propertyName;
         properties = arrayNew;
     }
 
-    public void deleteProperty(PropertySquare property)
+    public void deleteProperty(String propertyName)
     {
-        PropertySquare[] arrayNew = new PropertySquare[properties.length - 1];
+        String[] arrayNew = new String[properties.length - 1];
         for (int i = 0; i < properties.length; i++)
         {
-            if(!properties[i].getName().equals(property.getName()))
+            if(!properties[i].equals(propertyName))
             {
                 arrayNew[i] = properties[i];
             }
@@ -36,20 +37,7 @@ public class Account {
         properties = arrayNew;
     }
 
-    public PropertySquare readProperty(String name)
-    {
-        PropertySquare property = null;
-        for (int i = 0; i < properties.length; i++)
-        {
-            if(name.equals(properties[i].getName())) {
-                property = properties[i];
-                break;
-            }
-        }
-        return property;
-    }
-
-    public PropertySquare[] getProperties() {
+    public String[] getProperties() {
         return properties;
     }
 

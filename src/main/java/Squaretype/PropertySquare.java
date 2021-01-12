@@ -22,18 +22,16 @@ public class PropertySquare extends GameSquare {
     private GUI_Ownable fieldType;
     private int houses;
     private boolean hotel;
-    private GUIHandler guiHandler;
 
 
 
-    public PropertySquare(String name, int price, int rent, String description, Color bgColor, Color fgColor, GUIHandler guiHandler) {
+    public PropertySquare(String name, int price, int rent, String description, Color bgColor, Color fgColor) {
         this.name = name;
         this.price = price;
         String priceString = Integer.toString(price, rent);
         this.description = description;
         this.bgColor = bgColor;
         this.fgColor = fgColor;
-        this.guiHandler = guiHandler;
 
         fieldType = new GUI_Street(name, priceString, description, priceString, bgColor, fgColor);
     }
@@ -48,6 +46,7 @@ public class PropertySquare extends GameSquare {
             switch (selection){
                 case ("ja"):
                     owner = player;
+                    player.getAccount().addProperty(name);
                     player.getAccount().updateScore(-price);
                     player.getGuiPlayer().setBalance(player.getAccount().getBalance());
                     fieldType.setOwnableLabel(player.getName());
