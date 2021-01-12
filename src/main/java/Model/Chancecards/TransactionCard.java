@@ -15,7 +15,7 @@ public class TransactionCard extends ChanceCard {
     private Color fgColor;
     private GUI_Chance guiChance;
 
-    public TransactionCard(String title, String subText, String description)
+    public TransactionCard(String title, String subText, String description, int price)
     {
         this.guiChance = new GUI_Chance(title,subText,description,bgColor,fgColor);
         this.title = title;
