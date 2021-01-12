@@ -81,6 +81,7 @@ public class ChanceCardSquare extends GameSquare {
 
     @Override
     public void function(Player player, GUIHandler guiHandler) {
+        fieldType.setCar(player.getGuiPlayer(),true);
         drawNum =  (int)(Math.random() * 46);
 
         ChanceCard chanceCard = drawCard(drawNum);

@@ -26,6 +26,7 @@ public class ParkingSquare extends GameSquare {
     @Override
     public void function(Player player, GUIHandler guiHandler)
     {
+        fieldType.setCar(player.getGuiPlayer(),true);
         guiHandler.printMessage(description + " "+ player.getName());
     }
 

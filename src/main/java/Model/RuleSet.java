@@ -52,4 +52,23 @@ public class RuleSet {
         }
         return winner;
     }
+
+    public int prisonEscape(Player player, String userInput, int facevalue1, int facevalue2)
+    {
+        int totalFaceValue = 0;
+        switch (userInput)
+        {
+            case "Terninger":
+                if(facevalue1==facevalue2)
+                {
+                    player.setPrison(false);
+                    totalFaceValue = facevalue1+facevalue2;
+                }
+                break;
+            case "Betal":
+                player.getAccount().updateScore(-1000);
+                break;
+        }
+        return totalFaceValue;
+    }
 }

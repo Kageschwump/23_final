@@ -21,6 +21,7 @@ public class PrisonSquare extends GameSquare {
 
     @Override
     public void function(Player player, GUIHandler guiHandler) {
+        fieldType.setCar(player.getGuiPlayer(),true);
 
         guiHandler.printMessage(description);
         if(player.getAccount().isJailfree())
@@ -29,8 +30,8 @@ public class PrisonSquare extends GameSquare {
             player.getAccount().setJailfree(false);
         }else
             {
-                player.setPlacement(10);
-
+                player.setPlacement(30);
+                player.setPrison(true);
             }
 
     }

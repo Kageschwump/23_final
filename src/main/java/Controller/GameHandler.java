@@ -23,25 +23,27 @@ public class GameHandler {
 
     public void round(Player player)
     {
+        // Fængsel eller ikke fængsel
+
         shuffleCup.roll();
         int faceValue1 = shuffleCup.getDice1().getFaceValue();
         int faceValue2 = shuffleCup.getDice2().getFaceValue();
+        int facevalue = faceValue1 + faceValue2;
+
+        if(player.isPrison())
+        {
+            if(player.getAccount().getBalance() < 1000) {
+                facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger"), faceValue1, faceValue2);
+            }else
+                {
+                    facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"), faceValue1, faceValue2);
+                }
+        }
         guiHandler.playerRoll(player.getName());
         guiHandler.getRoll(faceValue1, faceValue2);
-        int facevalue = faceValue1 + faceValue2;
+        guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
         playerHandler.updatePlacement(facevalue, player);
-        if(gameBoard.getSquares()[player.getPlacement()]==gameBoard.getSquares()[18])
-        {
-            gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
-            guiHandler.printMessage(gameBoard.getSquares()[18].getDesc());
-            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),true);
-        }
-        else {
-            gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
-            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(), true);
-            guiHandler.printMessage(gameBoard.getSquares()[player.getPlacement()].getDesc());
-        }
-
+        gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
     }
 
     public void startGame()

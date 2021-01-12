@@ -23,7 +23,7 @@ public class TaxSquare extends GameSquare {
 
     @Override
     public void function(Player player, GUIHandler guiHandler) {
-
+        fieldType.setCar(player.getGuiPlayer(),true);
     }
 
     @Override

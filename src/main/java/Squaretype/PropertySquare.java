@@ -40,6 +40,8 @@ public class PropertySquare extends GameSquare {
 
     @Override
     public void function(Player player, GUIHandler guiHandler) {
+        fieldType.setCar(player.getGuiPlayer(),true);
+
         String selection;
         if (propertySquareNotOwned()) {
             selection = guiHandler.getGui().getUserSelection("vil du købe denne ejendom?", "ja", "nej");
