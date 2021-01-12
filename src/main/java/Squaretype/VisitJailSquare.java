@@ -22,7 +22,7 @@ public class VisitJailSquare extends GameSquare {
 
     @Override
     public void function(Player player, GUIHandler guiHandler) {
-
+        guiHandler.printMessage(description);
     }
 
     @Override

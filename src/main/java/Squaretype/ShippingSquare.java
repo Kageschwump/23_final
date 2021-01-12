@@ -12,12 +12,14 @@ import java.awt.*;
 public class ShippingSquare extends GameSquare {
     private String name = "";
     private String description = "bare kom du!";
+    private int rent;
     private Color bgColor = Color.pink;
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
 
-    public ShippingSquare(String name, String rent){
-        fieldType = new GUI_Shipping( "default", name ,"",description, rent,bgColor,fgColor);
+    public ShippingSquare(String name, int rent){
+        fieldType = new GUI_Shipping( "default", name ,"",description, Integer.toString(rent),bgColor,fgColor);
+
     }
 
     @Override

@@ -16,8 +16,8 @@ public class BrewerySquare extends GameSquare {
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
 
-    public BrewerySquare(String name, String rent){
-        fieldType = new GUI_Brewery( "default", name ,"",description, rent,bgColor,fgColor);
+    public BrewerySquare(String name, int rent){
+        fieldType = new GUI_Brewery( "default", name ,"",description, Integer.toString(rent),bgColor,fgColor);
     }
 
     @Override

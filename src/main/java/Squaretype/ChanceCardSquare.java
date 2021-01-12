@@ -15,6 +15,7 @@ public class ChanceCardSquare extends GameSquare {
     private String name = "?";
     private String subText = "Chancen";
     private String description = "Prøv lykken, tag et kort";
+    private int drawNum;
     private Color bgColor = Color.orange;
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
@@ -80,7 +81,16 @@ public class ChanceCardSquare extends GameSquare {
 
     @Override
     public void function(Player player, GUIHandler guiHandler) {
+        drawNum =  (int)(Math.random() * 46);
 
+        ChanceCard chanceCard = drawCard(drawNum);
+        guiHandler.printMessage(player.getName() + " Trak et kort: " + chanceCard.getDesc());
+        chanceCard.cardFunction(player);
+    }
+
+    public ChanceCard drawCard(int drawNum)
+    {
+        return chanceCards[drawNum];
     }
 
     @Override

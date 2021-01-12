@@ -22,6 +22,17 @@ public class PrisonSquare extends GameSquare {
     @Override
     public void function(Player player, GUIHandler guiHandler) {
 
+        guiHandler.printMessage(description);
+        if(player.getAccount().isJailfree())
+        {
+            guiHandler.printMessage(player.getName() + " Benådes fra fængsel. Heldige æsel");
+            player.getAccount().setJailfree(false);
+        }else
+            {
+                player.setPlacement(10);
+
+            }
+
     }
 
     @Override

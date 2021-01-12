@@ -26,7 +26,7 @@ public class ParkingSquare extends GameSquare {
     @Override
     public void function(Player player, GUIHandler guiHandler)
     {
-
+        guiHandler.printMessage(description + " "+ player.getName());
     }
 
     @Override

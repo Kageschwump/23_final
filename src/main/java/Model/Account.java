@@ -51,4 +51,9 @@ public class Account {
         this.jailfree = jailfree;
     }
 
+    public boolean isJailfree() {
+        return jailfree;
+    }
+
+
 }
