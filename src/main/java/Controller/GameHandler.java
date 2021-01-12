@@ -23,11 +23,19 @@ public class GameHandler {
 
     public void round(Player player)
     {
+        String squareType;
+
         shuffleCup.roll();
         int faceValue1 = shuffleCup.getDice1().getFaceValue();
         int faceValue2 = shuffleCup.getDice2().getFaceValue();
         guiHandler.playerRoll(player.getName());
         guiHandler.getRoll(faceValue1, faceValue2);
+        guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
+        player.updatePlacement(faceValue1+faceValue2);
+        gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),true);
+        guiHandler.printMessage(player.getName() + " Er landet på " + gameBoard.getFields()[player.getPlacement()].getTitle());
+
+        squareType = gameBoard.getSquares()[player.getPlacement()].function(player);
 
     }
 
