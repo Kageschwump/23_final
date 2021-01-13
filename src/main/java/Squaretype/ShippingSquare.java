@@ -57,7 +57,7 @@ public class ShippingSquare extends GameSquare {
     public void priceForLanding(Player player)
     {
         int givenPrice;
-        int numOfShipping = player.getAccount().getShippingProp().length;
+        int numOfShipping = owner.getAccount().getShippingProp().length;
         switch (Integer.toString(numOfShipping))
         {
             case "1":
