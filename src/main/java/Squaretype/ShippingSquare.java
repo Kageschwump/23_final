@@ -4,6 +4,7 @@ import Controller.GUIHandler;
 import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 import gui_fields.GUI_Shipping;
 import gui_fields.GUI_Tax;
 
@@ -18,7 +19,7 @@ public class ShippingSquare extends GameSquare {
     private Player owner;
     private Color bgColor = Color.pink;
     private Color fgColor = Color.black;
-    private GUI_Field fieldType;
+    private GUI_Ownable fieldType;
 
     public ShippingSquare(String name, int rent, int price){
         fieldType = new GUI_Shipping( "default", name ,"",description, Integer.toString(rent),bgColor,fgColor);

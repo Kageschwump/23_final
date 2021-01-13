@@ -5,6 +5,7 @@ import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Brewery;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 import gui_fields.GUI_Shipping;
 
 import java.awt.*;
@@ -18,7 +19,7 @@ public class BrewerySquare extends GameSquare {
     private Player owner;
     private Color bgColor = Color.pink;
     private Color fgColor = Color.black;
-    private GUI_Field fieldType;
+    private GUI_Ownable fieldType;
 
     public BrewerySquare(String name, int rent, int price){
         fieldType = new GUI_Brewery( "default", name ,"",description, Integer.toString(rent),bgColor,fgColor);

@@ -20,6 +20,7 @@ public class PropertySquare extends GameSquare {
     private Color bgColor;
     private Color fgColor;
     private GUI_Ownable fieldType;
+    private int housePrises;
     private int houses;
     private boolean hotel;
 
@@ -62,6 +63,16 @@ public class PropertySquare extends GameSquare {
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
             owner.getAccount().updateScore(price);
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
+        } else if(player == owner) {
+
+            selection = guiHandler.getGui().getUserSelection("vil du købe et hus på denne ejendom?", "ja", "nej");
+            switch (selection){
+                case ("ja"):
+                    purchaseHouse(player)
+                    break;
+                case ("nej"):
+                    break;
+            }
         }
     }
 
@@ -70,6 +81,18 @@ public class PropertySquare extends GameSquare {
             return true;
         } else
             return false;
+    }
+
+    public void purchaseHouse(Player player, boolean allPairsOwned, GUIHandler guiHandler)
+    {
+        if(allPairsOwned)
+        {
+            if(houses < 5)
+            {
+                guiHandler.printMessage("Du har nu købt et hus");
+                fieldType.
+            }
+        }
     }
 
     @Override
@@ -90,7 +113,7 @@ public class PropertySquare extends GameSquare {
 
     @Override
     public Color getColor() {
-        return fgColor;
+        return bgColor;
     }
 
 

@@ -10,7 +10,6 @@ import java.awt.*;
 public class GameBoard {
     private GUI_Field[] fields = new GUI_Field[40];
     private GameSquare[] squares = new GameSquare[40];
-    private GUIHandler guiHandler;
 
     public GameBoard()
     {

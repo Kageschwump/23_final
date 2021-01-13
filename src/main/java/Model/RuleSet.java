@@ -1,6 +1,9 @@
 package Model;
 
 import Controller.ChancecardHandler;
+import Squaretype.PropertySquare;
+
+import java.awt.*;
 
 public class RuleSet {
 
@@ -70,5 +73,32 @@ public class RuleSet {
                 break;
         }
         return totalFaceValue;
+    }
+    public boolean propertyPair(Player player, GameSquare[] squares, GameSquare landedSquare)
+    {
+
+        /*
+        int numOfProperies = 0;
+
+        for(int i = 0; i < squares.length; i++)
+        {
+            if(landedSquare.getColor().toString().equals(squares[i].getColor().toString()))
+            {
+                numOfProperies++;
+            }
+        }
+
+        if (numOfProperies == 3)
+        {
+            return true;
+        } else if(numOfProperies == 2 && landedSquare.getColor().toString().equals("magenta") || landedSquare.getColor().toString().equals("blue"))
+        {
+            return true;
+        } else
+            {
+                return false;
+            }
+
+         */
     }
 }
