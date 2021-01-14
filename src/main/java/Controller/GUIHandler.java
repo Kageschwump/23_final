@@ -97,7 +97,7 @@ public class GUIHandler {
 
     public void playerSell(String playername){
         String choice;
-        choice = gui.getUserSelection("din tur" + playername + "! Vil du sælge noget?", "ja", "nej");
+        choice = gui.getUserSelection("Vil du sælge noget?", "ja", "nej");
 
         switch(choice){
             case("ja"):

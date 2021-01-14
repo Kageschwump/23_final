@@ -58,9 +58,8 @@ public class RuleSet {
         return winner;
     }
 
-    public int prisonEscape(Player player, String userInput)
+    public void prisonEscape(Player player, String userInput)
     {
-        int totalFaceValue = 0;
         switch (userInput)
         {
             case "Terninger":
@@ -69,6 +68,7 @@ public class RuleSet {
                     if(shuffleCup.getDice1().getFaceValue() == shuffleCup.getDice2().getFaceValue()){
                         player.setPrison(false);
                         guiHandler.printMessage("tillykke, du slog 2 ens, og er ude af fængslet!");
+                        shuffleCup.roll();
                     }
                     else{
                         guiHandler.printMessage("Surt show, du må vente til næste tur");
@@ -77,9 +77,9 @@ public class RuleSet {
             case "Betal":
                 player.getAccount().updateScore(-1000);
                 player.setPrison(false);
+                guiHandler.printMessage("Du har betalt dig ud a fængslet ");
                 break;
         }
-        return totalFaceValue;
     }
 
 }

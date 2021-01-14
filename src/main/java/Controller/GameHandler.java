@@ -24,23 +24,24 @@ public class GameHandler {
     public void round(Player player)
     {
         // Fængsel eller ikke fængsel
-
+        guiHandler.printMessage("din tur" + player + "!");
         shuffleCup.roll();
+
+        if(player.isPrison())
+        {
+            guiHandler.printMessage("Du er i fængsel");
+            if(player.getAccount().getBalance() < 1000) {
+                ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængslet?", "Terninger"));
+            }else
+                {
+                    ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængslet?", "Terninger", "Betal"));
+                }
+        }
+
         int faceValue1 = shuffleCup.getDice1().getFaceValue();
         int faceValue2 = shuffleCup.getDice2().getFaceValue();
         int facevalue = faceValue1 + faceValue2;
         player.setLastRoll(facevalue);
-
-        if(player.isPrison())
-        {
-            if(player.getAccount().getBalance() < 1000) {
-                facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger"));
-            }else
-                {
-                    facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"));
-                }
-        }
-
         guiHandler.playerRoll(player.getName());
         guiHandler.getRoll(faceValue1, faceValue2);
         guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
