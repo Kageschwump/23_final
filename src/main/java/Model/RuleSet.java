@@ -66,12 +66,24 @@ public class RuleSet {
             case "Terninger":
                 if(facevalue1==facevalue2)
                 {
+                    guiHandler.playerRoll(player.getName());
+                    guiHandler.getRoll(facevalue1, facevalue2);
                     player.setPrison(false);
                     totalFaceValue = facevalue1+facevalue2;
-                }
+                    guiHandler.printMessage("Tilykke du er ude af fængslet");
+                } else
+                    {
+                        guiHandler.playerRoll(player.getName());
+                        guiHandler.getRoll(facevalue1, facevalue2);
+                        guiHandler.printMessage("Surt show, vent til næste runde");
+                    }
                 break;
             case "Betal":
                 player.getAccount().updateScore(-1000);
+                player.setPrison(false);
+                guiHandler.printMessage("Du har betalt dig ud af fænslet");
+                guiHandler.playerRoll(player.getName());
+                guiHandler.getRoll(facevalue1, facevalue2);
                 break;
         }
         return totalFaceValue;

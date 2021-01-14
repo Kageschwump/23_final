@@ -32,6 +32,7 @@ public class PrisonSquare extends GameSquare {
             {
                 player.setPlacement(10);
                 player.setPrison(true);
+                fieldType.removeAllCars();
             }
 
     }

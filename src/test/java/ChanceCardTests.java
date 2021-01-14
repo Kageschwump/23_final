@@ -8,26 +8,6 @@ public class ChanceCardTests
 {
     ChancecardHandler chancecardHandler =  new ChancecardHandler();
 
-    @Test
-    public void drawCardTest()
-    {
-        Player player = new Player(1,"HC",22,null,3000);
-        ChancecardHandler chancecardHandler =  new ChancecardHandler();
-        ChanceCard chanceCard = chancecardHandler.drawCard();
-        boolean notNull = false;
-
-        if(chanceCard != null)
-        {
-            notNull = true;
-        } else
-            {
-                notNull = false;
-            }
-
-
-        Assert.assertTrue(notNull);
-    }
-
     public void payCardFunktionTest()
     {
         Player player1 = new Player(1,"HC",22,null,3000);

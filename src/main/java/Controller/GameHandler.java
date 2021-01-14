@@ -39,9 +39,12 @@ public class GameHandler {
             {
                 facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"), faceValue1, faceValue2);
             }
-        }
-        guiHandler.playerRoll(player.getName());
-        guiHandler.getRoll(faceValue1, faceValue2);
+        }else
+            {
+                guiHandler.playerRoll(player.getName());
+                guiHandler.getRoll(faceValue1, faceValue2);
+            }
+
         guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
         player.updatePlacement(facevalue);
         gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
