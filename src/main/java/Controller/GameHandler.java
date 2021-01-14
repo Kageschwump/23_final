@@ -43,7 +43,7 @@ public class GameHandler {
         guiHandler.playerRoll(player.getName());
         guiHandler.getRoll(faceValue1, faceValue2);
         guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
-        playerHandler.updatePlacement(facevalue, player);
+        player.updatePlacement(facevalue);
         gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
     }
 

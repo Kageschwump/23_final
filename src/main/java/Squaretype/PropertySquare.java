@@ -33,6 +33,7 @@ public class PropertySquare extends GameSquare {
         this.fgColor = fgColor;
         this.housePrise = housePrises;
         this.rent = new int[]{rent, rentHouse1, rentHouse2, rentHouse3, rentHouse4, rentHotel};
+        houses = 0;
 
         fieldType = new GUI_Street(name, priceString, description, priceString, bgColor, fgColor);
     }
@@ -87,12 +88,15 @@ public class PropertySquare extends GameSquare {
     {
         if(houses < 5)
         {
+            houses++;
             fieldType.setHouses(houses);
             owner.getAccount().updateScore(-1 * housePrise);
+            owner.getAccount().addHouse();
             guiHandler.printMessage("Du har nu købt et hus");
         } else {
             fieldType.setHotel(true);
             owner.getAccount().updateScore(-1 * housePrise);
+            owner.getAccount().addHotel();
             guiHandler.printMessage("Du har nu et hotel");
         }
 

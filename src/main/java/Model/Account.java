@@ -1,7 +1,5 @@
 package Model;
 
-import Squaretype.PropertySquare;
-
 import java.awt.*;
 
 public class Account {
@@ -9,6 +7,8 @@ public class Account {
     private String[][] properties;
     private String[] shippingProp;
     private String[] breweryProp;
+    private int houses;
+    private int hotel;
     private boolean jailfree;
 
     public Account(int balance){
@@ -106,6 +106,26 @@ public class Account {
 
     public String[] getBreweryProp() {
         return breweryProp;
+    }
+
+    public void addHouse()
+    {
+        houses++;
+    }
+
+    public void addHotel()
+    {
+        hotel++;
+    }
+
+    public int numOfHouses()
+    {
+        return houses;
+    }
+
+    public int numOfHotels()
+    {
+        return hotel;
     }
 
 }

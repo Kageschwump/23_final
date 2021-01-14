@@ -29,23 +29,9 @@ public class PriceCard extends ChanceCard {
 
     @Override
     public void cardFunction(Player player) {
-        int numOfHouses = 0;
-        int numOfHotels = 0;
-        int value;
-/*
-        for (int i = 0; i < player.getAccount().getProperties().length; i++)
-        {
-            numOfHouses += player.getAccount().getProperties()[i].getHouses();
-
-            if(player.getAccount().getProperties()[i].isHotel())
-            {
-                numOfHotels++;
-            }
-        }
-
-        value = (pricePrHouse * numOfHouses) + (pricePrHotel * numOfHotels);
+        int value = 0;
+        value = (pricePrHouse * player.getAccount().numOfHouses()) + (pricePrHotel * player.getAccount().numOfHotels());
         player.getAccount().updateScore((-1) * value);
- */
     }
 
     @Override

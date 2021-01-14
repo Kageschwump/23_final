@@ -2,17 +2,15 @@ package Controller;
 
 import Model.ChanceCard;
 import Model.Chancecards.*;
-import Model.GameBoard;
-import Model.Player;
-import Model.RuleSet;
+
 
 public class ChancecardHandler
 {
-
-    private ChanceCard[] cards = new ChanceCard[46];
+    private ChanceCard[] cards;
 
     public ChancecardHandler()
     {
+        cards = new ChanceCard[46];
         createCards();
     }
 
@@ -72,6 +70,10 @@ public class ChancecardHandler
         int randomCard = (int) (Math.random() * 3);
 
         return cards[randomCard];
+    }
+
+    public ChanceCard[] getCards() {
+        return cards;
     }
 
 }

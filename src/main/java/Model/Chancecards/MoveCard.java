@@ -38,12 +38,11 @@ public class MoveCard extends ChanceCard {
             if(player.getPlacement() > placement)
             {
                 addedPlacement = (40 - player.getPlacement()) + placement;
-                player.updatePlacement(addedPlacement);
             } else
             {
                 addedPlacement = placement - player.getPlacement();
-                player.updatePlacement(addedPlacement);
             }
+            player.updatePlacement(addedPlacement);
 
         } else
             {

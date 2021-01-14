@@ -26,6 +26,7 @@ public class TransactionCard extends ChanceCard {
     @Override
     public void cardFunction(Player player) {
 
+
     }
 
     @Override

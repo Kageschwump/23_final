@@ -1,7 +1,5 @@
 package Model;
 
-import Controller.ChancecardHandler;
-import Controller.GUIHandler;
 import Squaretype.*;
 import gui_fields.GUI_Field;
 
@@ -70,7 +68,6 @@ public class GameBoard {
         squares[39] = new PropertySquare("Rådhuspladsen",8000,1000,"sut gren", Color.magenta, Color.black,4000,4000,12000,28000,34000,40000);
     }
 
-
     public GUI_Field[] getFields() {
         return fields;
     }
@@ -78,10 +75,5 @@ public class GameBoard {
     public GameSquare[] getSquares() {
         return squares;
     }
-
-
-
-
-
 
 }

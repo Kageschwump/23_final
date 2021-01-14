@@ -26,6 +26,10 @@ public class ChanceCardSquare extends GameSquare {
 
     @Override
     public void function(Player player, GUIHandler guiHandler) {
+        if(super.getChancecardHandler().getCards() == null)
+        {
+            super.getChancecardHandler().createCards();
+        }
         fieldType.setCar(player.getGuiPlayer(),true);
 
         ChanceCard chanceCard = super.getChancecardHandler().drawCard();
