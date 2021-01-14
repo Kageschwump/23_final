@@ -63,7 +63,7 @@ public class ChancecardHandler
 
     public ChanceCard drawCard()
     {
-        int randomCard = (int) (Math.random() * 3);
+        int randomCard = (int) (Math.random() * 41+1);
 
         return cards[randomCard];
     }

@@ -29,7 +29,7 @@ public class PriceCard extends ChanceCard {
 
     @Override
     public void cardFunction(Player player) {
-        int value = 0;
+        int value;
         value = (pricePrHouse * player.getAccount().numOfHouses()) + (pricePrHotel * player.getAccount().numOfHotels());
         player.getAccount().updateScore((-1) * value);
     }
