@@ -21,7 +21,7 @@ public class ChanceCardSquare extends GameSquare {
 
     public ChanceCardSquare()
     {
-        fieldType = new GUI_Chance(name, subText, "prøv lykken, tag et kort", bgColor, fgColor);
+        fieldType = new GUI_Chance(name, subText, description, bgColor, fgColor);
     }
 
     @Override
@@ -33,7 +33,8 @@ public class ChanceCardSquare extends GameSquare {
         fieldType.setCar(player.getGuiPlayer(),true);
 
         ChanceCard chanceCard = super.getChancecardHandler().drawCard();
-        guiHandler.printMessage(player.getName() + " Trak et kort: " + chanceCard.getDesc());
+        guiHandler.printMessage(player.getName() + " træk et kort! " + chanceCard.getDesc());
+        guiHandler.getGui().setChanceCard(chanceCard.getDesc());
         chanceCard.cardFunction(player);
     }
 

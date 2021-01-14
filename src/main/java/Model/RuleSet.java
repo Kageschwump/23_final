@@ -1,9 +1,6 @@
 package Model;
 
 import Controller.ChancecardHandler;
-import Squaretype.PropertySquare;
-
-import java.awt.*;
 
 public class RuleSet {
 
