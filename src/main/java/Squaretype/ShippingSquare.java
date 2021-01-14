@@ -48,17 +48,17 @@ public class ShippingSquare extends GameSquare {
                     break;
             }
         } else if (player != owner) {
-            player.getAccount().updateScore(-1 * priceForLanding(owner));
+            player.getAccount().updateScore(-1 * priceForLanding());
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-            owner.getAccount().updateScore(priceForLanding(owner));
+            owner.getAccount().updateScore(priceForLanding());
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
         }
     }
 
-    public int priceForLanding(Player player)
+    public int priceForLanding()
     {
         int priceToPay = 0;
-        int numOfShipping = player.getAccount().getShippingProp().length;
+        int numOfShipping = owner.getAccount().getShippingProp().length;
         switch (Integer.toString(numOfShipping))
         {
             case "1":

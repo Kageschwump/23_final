@@ -68,5 +68,16 @@ public class Player {
         this.prison = prison;
     }
 
+    public int getLastRoll() {
+        return lastRoll;
+    }
+
+    public void setLastRoll(int lastRoll) {
+        this.lastRoll = lastRoll;
+    }
+
+    int lastRoll;
+
+
 
 }
