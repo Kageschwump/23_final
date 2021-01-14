@@ -15,7 +15,7 @@ public class ChancecardHandler
     }
 
 
-    public void createCards()
+    private void createCards()
     {
         cards[0] = new PriceCard("Oliepriser","Priser stiger", "Oliepriserne er steget, og du skal betale 500 kr pr hus og 2000 kr pr hotel",500,2000);
         cards[1] = new PriceCard("Ejendomsskat","Priser stiger", "Ejendomsskatten er steget. Ekstraudgifterne er: 800 kr pr hus, 2300 kr pr hotel",800,2300);
@@ -61,11 +61,11 @@ public class ChancecardHandler
         cards[41] = new JailCard("Fængsel","Gå i fængsel","De fængsles, gå derfor i fængsel og modtag ikke 4000 kr hvis de inkasserer START",false);
     }
 
-    public ChanceCard drawCard()
+    public int drawCard()
     {
         int randomCard = (int) (Math.random() * 41+1);
 
-        return cards[randomCard];
+        return randomCard;
     }
 
     public ChanceCard[] getCards() {
