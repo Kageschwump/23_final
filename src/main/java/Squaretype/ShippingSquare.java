@@ -48,44 +48,33 @@ public class ShippingSquare extends GameSquare {
                     break;
             }
         } else if (player != owner) {
-            player.getAccount().updateScore(-rent);
+            player.getAccount().updateScore(-1 * priceForLanding(owner));
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-            owner.getAccount().updateScore(rent);
+            owner.getAccount().updateScore(priceForLanding(owner));
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
         }
     }
 
-    public void priceForLanding(Player player)
+    public int priceForLanding(Player player)
     {
-        int givenPrice;
+        int priceToPay = 0;
         int numOfShipping = player.getAccount().getShippingProp().length;
         switch (Integer.toString(numOfShipping))
         {
             case "1":
-                player.getAccount().updateScore(-500);
-                owner.getAccount().updateScore(+500);
-                player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                owner.getGuiPlayer().setBalance(player.getAccount().getBalance());
+                priceToPay = 500;
                 break;
             case "2":
-                player.getAccount().updateScore(-1000);
-                owner.getAccount().updateScore(+1000);
-                player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                owner.getGuiPlayer().setBalance(player.getAccount().getBalance());
+                priceToPay = 1000;
                 break;
             case "3":
-                player.getAccount().updateScore(-2000);
-                owner.getAccount().updateScore(+2000);
-                player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                owner.getGuiPlayer().setBalance(player.getAccount().getBalance());
+                priceToPay = 2000;
                 break;
             case "4":
-                player.getAccount().updateScore(-4000);
-                owner.getAccount().updateScore(+4000);
-                player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                owner.getGuiPlayer().setBalance(player.getAccount().getBalance());
+                priceToPay = 4000;
                 break;
         }
+        return priceToPay;
     }
 
     public boolean propertySquareNotOwned() {

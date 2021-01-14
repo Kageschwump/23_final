@@ -104,4 +104,8 @@ public class Account {
         return shippingProp;
     }
 
+    public String[] getBreweryProp() {
+        return breweryProp;
+    }
+
 }

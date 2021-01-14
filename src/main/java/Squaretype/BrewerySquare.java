@@ -15,7 +15,6 @@ public class BrewerySquare extends GameSquare {
     private String description = "Snup en sodavand!";
     private int rent;
     private int price;
-    private boolean owned;
     private Player owner;
     private Color bgColor = Color.pink;
     private Color fgColor = Color.black;
@@ -48,9 +47,9 @@ public class BrewerySquare extends GameSquare {
                     break;
             }
         } else if (player != owner) {
-            player.getAccount().updateScore(-price);
+            player.getAccount().updateScore(-1 * priceForLanding(owner));
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-            owner.getAccount().updateScore(price);
+            owner.getAccount().updateScore(priceForLanding(owner));
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
         }
     }
@@ -62,37 +61,20 @@ public class BrewerySquare extends GameSquare {
             return false;
     }
 
-    public void priceForLanding(Player player)
+    public int priceForLanding(Player player, int diceEyes)
     {
-        int givenPrice;
-        int numOfShipping = player.getAccount().getShippingProp().length;
+        int priceToPay = 0;
+        int numOfShipping = player.getAccount().getBreweryProp().length;
         switch (Integer.toString(numOfShipping))
         {
             case "1":
-                player.getAccount().updateScore(-500);
-                owner.getAccount().updateScore(+500);
-                player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                owner.getGuiPlayer().setBalance(player.getAccount().getBalance());
+                priceToPay = diceEyes * 100;
                 break;
             case "2":
-                player.getAccount().updateScore(-1000);
-                owner.getAccount().updateScore(+1000);
-                player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                owner.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                break;
-            case "3":
-                player.getAccount().updateScore(-2000);
-                owner.getAccount().updateScore(+2000);
-                player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                owner.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                break;
-            case "4":
-                player.getAccount().updateScore(-4000);
-                owner.getAccount().updateScore(+4000);
-                player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-                owner.getGuiPlayer().setBalance(player.getAccount().getBalance());
+                priceToPay= diceEyes * 200;
                 break;
         }
+        return priceToPay;
     }
 
     @Override
