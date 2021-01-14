@@ -19,7 +19,7 @@ public class PropertySquare extends GameSquare {
     private int rent;
     private Color bgColor;
     private Color fgColor;
-    private GUI_Ownable fieldType;
+    private GUI_Street fieldType;
     private int housePrises;
     private int houses;
     private boolean hotel;
@@ -49,7 +49,7 @@ public class PropertySquare extends GameSquare {
             switch (selection){
                 case ("ja"):
                     owner = player;
-                    player.getAccount().addProperty(name);
+                    player.getAccount().addProperty(name,bgColor);
                     player.getAccount().updateScore(-price);
                     player.getGuiPlayer().setBalance(player.getAccount().getBalance());
                     fieldType.setOwnableLabel(player.getName());
@@ -63,12 +63,12 @@ public class PropertySquare extends GameSquare {
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
             owner.getAccount().updateScore(price);
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
-        } else if(player == owner) {
-
+        } else if(checkPairs(player))
+        {
             selection = guiHandler.getGui().getUserSelection("vil du købe et hus på denne ejendom?", "ja", "nej");
             switch (selection){
                 case ("ja"):
-                    purchaseHouse(player)
+                    purchaseHouse(guiHandler);
                     break;
                 case ("nej"):
                     break;
@@ -83,16 +83,42 @@ public class PropertySquare extends GameSquare {
             return false;
     }
 
-    public void purchaseHouse(Player player, boolean allPairsOwned, GUIHandler guiHandler)
+    public void purchaseHouse(GUIHandler guiHandler)
     {
-        if(allPairsOwned)
+        if(houses < 5)
         {
-            if(houses < 5)
-            {
-                guiHandler.printMessage("Du har nu købt et hus");
-                fieldType.
+            guiHandler.printMessage("Du har nu købt et hus");
+            fieldType.setHouses(houses);
+        } else {
+            hotel = true;
+            guiHandler.printMessage("Du har nu et hotel");
+            fieldType.setHotel(hotel);
+        }
+    }
+
+    public boolean checkPairs(Player player)
+    {
+        String[][] otherProperties = player.getAccount().getProperties();
+        int numOfPairs = 0;
+
+        for (int i = 0; i < otherProperties.length; i++) {
+            if (otherProperties[i][1].equals(bgColor.toString())) {
+                numOfPairs++;
             }
         }
+
+        if(!bgColor.toString().equals("magenta")||!bgColor.toString().equals("blue"))
+        {
+
+            if (numOfPairs == 3) {
+                return true;
+            } else return false;
+        }else
+            {
+                if (numOfPairs == 2) {
+                    return true;
+                } else return false;
+            }
     }
 
     @Override

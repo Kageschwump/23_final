@@ -16,6 +16,7 @@ public class StartSquare extends GameSquare {
 
     public StartSquare()
     {
+        super.createHandlers();
         fieldType = new GUI_Start(name, "", description, Color.white, Color.black);
     }
 

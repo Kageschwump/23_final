@@ -19,7 +19,7 @@ public class ShippingSquare extends GameSquare {
     private Player owner;
     private Color bgColor = Color.pink;
     private Color fgColor = Color.black;
-    private GUI_Ownable fieldType;
+    private GUI_Shipping fieldType;
 
     public ShippingSquare(String name, int rent, int price){
         fieldType = new GUI_Shipping( "default", name ,"",description, Integer.toString(rent),bgColor,fgColor);

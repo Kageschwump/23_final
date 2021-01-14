@@ -19,7 +19,7 @@ public class BrewerySquare extends GameSquare {
     private Player owner;
     private Color bgColor = Color.pink;
     private Color fgColor = Color.black;
-    private GUI_Ownable fieldType;
+    private GUI_Brewery fieldType;
 
     public BrewerySquare(String name, int rent, int price){
         fieldType = new GUI_Brewery( "default", name ,"",description, Integer.toString(rent),bgColor,fgColor);
