@@ -48,9 +48,9 @@ public class ShippingSquare extends GameSquare {
                     break;
             }
         } else if (player != owner) {
-            player.getAccount().updateScore(-price);
+            player.getAccount().updateScore(-rent);
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
-            owner.getAccount().updateScore(price);
+            owner.getAccount().updateScore(rent);
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
         }
     }
