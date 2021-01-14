@@ -36,6 +36,6 @@ public class PriceCard extends ChanceCard {
 
     @Override
     public String getDesc() {
-        return null;
+        return description;
     }
 }

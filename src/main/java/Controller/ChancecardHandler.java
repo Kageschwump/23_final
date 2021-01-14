@@ -10,7 +10,7 @@ public class ChancecardHandler
 
     public ChancecardHandler()
     {
-        cards = new ChanceCard[46];
+        cards = new ChanceCard[42];
         createCards();
     }
 
@@ -41,28 +41,24 @@ public class ChancecardHandler
         cards[21] = new PayCard("Præmieobligation","Modtag","Deres præmieobligation er udtrykket. De modtager 1000 kr af banken",+1000);
         cards[22] = new PayCard("Auktion","Modtag","De har solgt nogle gamle møbler på auktion. Modtag 1000 kr af banken",+1000);
         cards[23] = new PayCard("Nyttehaven","Modtag","Værdien af egen avl fra nyttehaven udgør 200 k, som De modtager af banken",+200);
-        // cards[24] = new PayCard("Matador-legatet","Modtag","De modtager Matador-legatet på 40000 kr, men kun hvis Deres værdier ikke overstiger 15000kr",+40000);
-        cards[25] = new TransactionCard("Fødselsdag","Modtag","Det er Deres fødselsdag. Modtag af hver medspiller 200 kr",+200);
-        cards[26] = new TransactionCard("Fest","Modtag","De har lagt penge ud til et sammenskudsgilde. Mærkværdigvis betaler alle straks. Modtag fra hver medspiller 500 kr",+500);
-        cards[27] = new TransactionCard("Fest","Modtag","De skal holde fammiliefest og får et tilskud fra hver medspiller på 500 kr",+500);
+        cards[24] = new TransactionCard("Fødselsdag","Modtag","Det er Deres fødselsdag. Modtag af hver medspiller 200 kr",+200);
+        cards[25] = new TransactionCard("Fest","Modtag","De har lagt penge ud til et sammenskudsgilde. Mærkværdigvis betaler alle straks. Modtag fra hver medspiller 500 kr",+500);
+        cards[26] = new TransactionCard("Fest","Modtag","De skal holde fammiliefest og får et tilskud fra hver medspiller på 500 kr",+500);
+        cards[27] = new MoveCard("Ryk frem","Ryk","Ryk frem til START",true,0);
         cards[28] = new MoveCard("Ryk frem","Ryk","Ryk frem til START",true,0);
-        cards[29] = new MoveCard("Ryk frem","Ryk","Ryk frem til START",true,0);
-        cards[30] = new MoveCard("Ryk frem","Ryk","Ryk tre felter frem",false,+3);
+        cards[29] = new MoveCard("Ryk frem","Ryk","Ryk tre felter frem",false,+3);
+        cards[30] = new MoveCard("Ryk tilbage","Ryk","Ryk tre felter tilbage",false,-3);
         cards[31] = new MoveCard("Ryk tilbage","Ryk","Ryk tre felter tilbage",false,-3);
-        cards[32] = new MoveCard("Ryk tilbage","Ryk","Ryk tre felter tilbage",false,-3);
-        cards[33] = new MoveCard("Ryk frem","Ryk","Ryk frem til Frederiksberg Allé. Hvis De passerer START, inkasserer De 4000 kr",true,11);
-        //cards[34] = new MoveCard("Ryk frem","Ryk","Ryk frem til det nærmeste rederi og betal ejeren to gange den leje han ellers er berettiget til, hvis selskabet ikke af ejes af nogen kan De købe det af banken.",true)
-        //cards[35] = new MoveCard("Ryk frem","Ryk","Ryk frem til det nærmeste rederi og betal ejeren to gange den leje han ellers er berettiget til, hvis selskabet ikke af ejes af nogen kan De købe det af banken.",true)
-        cards[36] = new MoveCard("Ryk frem","Ryk","Tag med Mols-linjen, flkyt brikken frem og hvis De passerer START inkassér da 4000 kr",true,15);
-        cards[37] = new MoveCard("Ryk frem","Ryk","Ryk frem til Grønningen, hvis De passerer START inkassér da 4000 kr",true,24);
-        cards[38] = new MoveCard("Ryk frem","Ryk","Ryk frem til Vimmelskaftet, hvis De passerer START inkassér da 4000 kr",true,32);
-        //cards[39] = new MoveCard("Ryk frem","Ryk","Tag med den nærmeste færge, hvis De passerer START inkassér da 4000 kr",true);
-        cards[40] = new MoveCard("Ryk frem","Ryk","Ryk frem til Strandvejen, inkassér 4000 kr hvis De passerer START",true,19);
-        cards[41] = new MoveCard("Ryk til","Ryk","Ryk frem til Rådhuspladsen",true,39);
-        cards[42] = new JailCard("Benådning","Frihed","I anledning af kongens fødselsdag benådes De herved for fængsel. Dette kort kan opbevares indtil De har brug for det",true);
-        cards[43] = new JailCard("Benådning","Frihed","I anledning af kongens fødselsdag benådes De herved for fængsel. Dette kort kan opbevares indtil De har brug for det",true);
-        cards[44] = new JailCard("Fængsel","Gå i fængsel","De fængsles, gå derfor i fængsel og modtag ikke 4000 kr hvis de inkasserer START",false);
-        cards[45] = new JailCard("Fængsel","Gå i fængsel","De fængsles, gå derfor i fængsel og modtag ikke 4000 kr hvis de inkasserer START",false);
+        cards[32] = new MoveCard("Ryk frem","Ryk","Ryk frem til Frederiksberg Allé. Hvis De passerer START, inkasserer De 4000 kr",true,11);
+        cards[33] = new MoveCard("Ryk frem","Ryk","Tag med Mols-linjen, flkyt brikken frem og hvis De passerer START inkassér da 4000 kr",true,15);
+        cards[34] = new MoveCard("Ryk frem","Ryk","Ryk frem til Grønningen, hvis De passerer START inkassér da 4000 kr",true,24);
+        cards[35] = new MoveCard("Ryk frem","Ryk","Ryk frem til Vimmelskaftet, hvis De passerer START inkassér da 4000 kr",true,32);
+        cards[36] = new MoveCard("Ryk frem","Ryk","Ryk frem til Strandvejen, inkassér 4000 kr hvis De passerer START",true,19);
+        cards[37] = new MoveCard("Ryk til","Ryk","Ryk frem til Rådhuspladsen",true,39);
+        cards[38] = new JailCard("Benådning","Frihed","I anledning af kongens fødselsdag benådes De herved for fængsel. Dette kort kan opbevares indtil De har brug for det",true);
+        cards[39] = new JailCard("Benådning","Frihed","I anledning af kongens fødselsdag benådes De herved for fængsel. Dette kort kan opbevares indtil De har brug for det",true);
+        cards[40] = new JailCard("Fængsel","Gå i fængsel","De fængsles, gå derfor i fængsel og modtag ikke 4000 kr hvis de inkasserer START",false);
+        cards[41] = new JailCard("Fængsel","Gå i fængsel","De fængsles, gå derfor i fængsel og modtag ikke 4000 kr hvis de inkasserer START",false);
     }
 
     public ChanceCard drawCard()
