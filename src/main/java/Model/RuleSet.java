@@ -70,6 +70,7 @@ public class RuleSet {
                 break;
             case "Betal":
                 player.getAccount().updateScore(-1000);
+                player.setPrison(false);
                 break;
         }
         return totalFaceValue;
