@@ -6,6 +6,6 @@ public class ChanceCardTests
     @Test
     public void drawCardTest()
     {
-        Player player = new Player();
+        // Player player = new Player();
     }
 }

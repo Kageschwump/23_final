@@ -30,7 +30,7 @@ public class PrisonSquare extends GameSquare {
             player.getAccount().setJailfree(false);
         }else
             {
-                player.setPlacement(30);
+                player.setPlacement(10);
                 player.setPrison(true);
             }
 

@@ -17,7 +17,7 @@ public class GameHandler {
         this.gameBoard = new GameBoard();
         gameBoard.createGameBoard();
         guiHandler = new GUIHandler(gameBoard.createFields());
-        this.ruleset = new RuleSet(gameBoard, chanceCardHandler);
+        this.ruleset = new RuleSet(gameBoard, chanceCardHandler, guiHandler, shuffleCup);
 
     }
 
@@ -34,12 +34,13 @@ public class GameHandler {
         if(player.isPrison())
         {
             if(player.getAccount().getBalance() < 1000) {
-                facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger"), faceValue1, faceValue2);
+                facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger"));
             }else
                 {
-                    facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"), faceValue1, faceValue2);
+                    facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"));
                 }
         }
+
         guiHandler.playerRoll(player.getName());
         guiHandler.getRoll(faceValue1, faceValue2);
         guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);

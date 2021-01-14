@@ -29,7 +29,7 @@ public class ChanceCardSquare extends GameSquare {
         fieldType.setCar(player.getGuiPlayer(),true);
 
         super.getChancecardHandler().drawCard().cardFunction(player);
-        guiHandler.printMessage(player.getName() + " træk et kort! " + chanceCard.getDesc());
+        // guiHandler.printMessage(player.getName() + " træk et kort! " + ChanceCard.getDesc());
     }
 
     @Override

@@ -1,15 +1,20 @@
 package Model;
 
 import Controller.ChancecardHandler;
+import Controller.GUIHandler;
 
 public class RuleSet {
 
     GameBoard gameBoard;
     ChancecardHandler chancecardHandler;
+    GUIHandler guiHandler;
+    ShuffleCup shuffleCup;
 
-    public RuleSet(GameBoard gameBoard, ChancecardHandler chanceCardHandler){
+    public RuleSet(GameBoard gameBoard, ChancecardHandler chanceCardHandler, GUIHandler guiHandler, ShuffleCup shuffleCup){
         this.chancecardHandler = chanceCardHandler;
         this.gameBoard = gameBoard;
+        this.guiHandler = guiHandler;
+        this.shuffleCup = shuffleCup;
     }
 
     public boolean gameOver(Player[] players)
@@ -53,17 +58,21 @@ public class RuleSet {
         return winner;
     }
 
-    public int prisonEscape(Player player, String userInput, int facevalue1, int facevalue2)
+    public int prisonEscape(Player player, String userInput)
     {
         int totalFaceValue = 0;
         switch (userInput)
         {
             case "Terninger":
-                if(facevalue1==facevalue2)
-                {
-                    player.setPrison(false);
-                    totalFaceValue = facevalue1+facevalue2;
-                }
+                    shuffleCup.roll();
+                    guiHandler.getGui().getUserSelection(player + "kast med terningerne", "rul");
+                    if(shuffleCup.getDice1().getFaceValue() == shuffleCup.getDice2().getFaceValue()){
+                        player.setPrison(false);
+                        guiHandler.printMessage("tillykke, du slog 2 ens, og er ude af fængslet!");
+                    }
+                    else{
+                        guiHandler.printMessage("Surt show, du må vente til næste tur");
+                    }
                 break;
             case "Betal":
                 player.getAccount().updateScore(-1000);
