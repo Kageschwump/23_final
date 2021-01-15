@@ -29,6 +29,7 @@ public class TaxSquare extends GameSquare {
         fieldType.setCar(player.getGuiPlayer(),true);
         guiHandler.printMessage(description + " Der bliver trukket " + tax + " fra din konto");
         player.getAccount().updateScore(-tax);
+        player.getGuiPlayer().setBalance(player.getAccount().getBalance());
 
     }
 
