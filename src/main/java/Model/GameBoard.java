@@ -30,7 +30,7 @@ public class GameBoard {
         squares[1] = new PropertySquare("Rødovrevej",1200,50,"Velkommen til Rødovrevej", Color.blue, Color.black, 1000,250,750,2250,4000,6000);
         squares[2] = new ChanceCardSquare();
         squares[3] = new PropertySquare("Hvidovrevej",1200,50,"Velkommen til Hvidovrevej", Color.blue, Color.black, 1000,250,750, 2250,4000,6000);
-        squares[4] = new TaxSquare();
+        squares[4] = new TaxSquare("IndkomstSkat",4000);
         squares[5] = new ShippingSquare("Scandlines", 500,4000);
         squares[6] = new PropertySquare("Roskildevej",2000,100,"Velkommen til Roskildevej", Color.orange, Color.black,1000,600,1800,5400,8000,11000);
         squares[7] = new ChanceCardSquare();
@@ -64,7 +64,7 @@ public class GameBoard {
         squares[35] = new ShippingSquare("Scandlines", 500,4000);
         squares[36] = new ChanceCardSquare();
         squares[37] = new PropertySquare("Frederiksberggade",7000,700,"Velkommen til Frederiksberggade", Color.magenta, Color.black,4000,3500,10000,22000,26000,30000);
-        squares[38] = new TaxSquare();
+        squares[38] = new TaxSquare("Ekstraordinær Statsskat",2000);
         squares[39] = new PropertySquare("Rådhuspladsen",8000,1000,"Velkommen til Rådhuspladsen", Color.magenta, Color.black,4000,4000,12000,28000,34000,40000);
     }
 
