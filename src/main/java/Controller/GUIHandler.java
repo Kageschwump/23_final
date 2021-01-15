@@ -95,19 +95,6 @@ public class GUIHandler {
         return gui_car;
     }
 
-    public void playerSell(String playername){
-        String choice;
-        choice = gui.getUserSelection("Vil du sælge noget?", "ja", "nej");
-
-        switch(choice){
-            case("ja"):
-                gui.getUserSelection("hvad vil du sælge?", "slik mig");
-            case("nej"):
-                break;
-        }
-
-    }
-
     public void playerRoll(String playername){
         gui.getUserButtonPressed(playername + ", kast med terningerne!", "rul");
     }

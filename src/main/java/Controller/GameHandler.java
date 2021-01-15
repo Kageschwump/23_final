@@ -88,4 +88,23 @@ public class GameHandler {
 
         }
     }
+
+    public void sellProperty(Player player)
+    {
+        String playerOption;
+        if(player.getAccount().getBalance() > 0)
+        {
+            playerOption = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?\n Du modtager halvdelen af ejendommens eller husets pris", "Ejendom", "Huse", "rul");
+
+        }else
+            {
+
+            }
+        switch (playerOption)
+        {
+            case "Ejendom":
+                guiHandler.getGui().getUserSelection();
+            case "Huse":
+        }
+    }
 }
