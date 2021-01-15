@@ -45,7 +45,7 @@ public class PropertySquare extends GameSquare {
         fieldType.setCar(player.getGuiPlayer(),true);
 
         String selection;
-        if (propertySquareNotOwned()) {
+        if (propertySquareNotOwned() && player.getAccount().getBalance() > price) {
             selection = guiHandler.getGui().getUserSelection("vil du købe denne ejendom?", "ja", "nej");
             switch (selection){
                 case ("ja"):
