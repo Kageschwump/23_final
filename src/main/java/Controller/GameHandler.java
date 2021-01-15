@@ -18,12 +18,11 @@ public class GameHandler {
         gameBoard.createGameBoard();
         guiHandler = new GUIHandler(gameBoard.createFields());
         this.ruleset = new RuleSet(gameBoard, chanceCardHandler, guiHandler, shuffleCup);
-
     }
 
     public void round(Player player)
     {
-        // Fængsel eller ikke fængsel
+
 
         shuffleCup.roll();
         int faceValue1 = shuffleCup.getDice1().getFaceValue();
@@ -31,6 +30,7 @@ public class GameHandler {
         int facevalue = faceValue1 + faceValue2;
         player.setLastRoll(facevalue);
 
+        // Fængsel eller ikke fængsel
         if(player.isPrison())
         {
             if(player.getAccount().getBalance() < 1000) {
@@ -51,6 +51,8 @@ public class GameHandler {
         gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
         if(player.getPlacement() != lastPlacement)
         {
+            guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
+            lastPlacement = player.getPlacement();
             gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
         }
     }
@@ -88,7 +90,4 @@ public class GameHandler {
 
         }
     }
-
-
-
 }

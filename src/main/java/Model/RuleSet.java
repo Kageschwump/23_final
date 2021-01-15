@@ -80,6 +80,7 @@ public class RuleSet {
                 break;
             case "Betal":
                 player.getAccount().updateScore(-1000);
+                player.getGuiPlayer().setBalance(player.getAccount().getBalance());
                 player.setPrison(false);
                 guiHandler.printMessage("Du har betalt dig ud af fænslet");
                 guiHandler.playerRoll(player.getName());

@@ -14,6 +14,7 @@ public class AccountTest
         String propName = "Lyse Stagen";
 
         player1.getAccount().addProperty(propName,propColor);
+        String[] dude = new String[1];
 
         Assert.assertEquals("black", player1.getAccount().getProperties()[0][1]);
     }

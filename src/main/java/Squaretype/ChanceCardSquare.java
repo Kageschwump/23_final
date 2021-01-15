@@ -31,7 +31,6 @@ public class ChanceCardSquare extends GameSquare {
         int cardNum = super.getChancecardHandler().drawCard();
 
         guiHandler.printMessage( player.getName() + " trak et kort! " + super.getChancecardHandler().getCards()[cardNum].getDesc());
-        fieldType.removeAllCars();
         super.getChancecardHandler().getCards()[cardNum].cardFunction(player);
     }
 
