@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.GUIHandler;
+
 public abstract class ChanceCard {
 
     private String chance = "Chance kort!";
