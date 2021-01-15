@@ -1,19 +1,13 @@
 package Model.Chancecards;
 
-import Controller.GUIHandler;
 import Model.ChanceCard;
 import Model.Player;
-import gui_fields.GUI_Chance;
-
-import java.awt.*;
 
 public class MoveCard extends ChanceCard {
 
     private String title;
     private String subText;
     private String description;
-    private Color bgColor;
-    private Color fgColor;
     private boolean moveToAdress;
     private int placement;
 

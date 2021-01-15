@@ -76,18 +76,26 @@ public class GameBoard {
         return squares;
     }
 
-    public void resetOwnership(String propName, String color)
+    public PropertySquare findProp(String propName)
     {
+        PropertySquare prop = null;
         for(int i = 0; i < squares.length; i++)
         {
             if(squares[i].getName().equals(propName))
             {
-                squares[i]
+                prop = (PropertySquare) squares[i];
             }
         }
+        return prop;
     }
 
-    public void removeHouse(String propName, String color)
+    public void resetOwnership(String propName)
+    {
+        PropertySquare propertySquare = findProp(propName);
+        propertySquare.removeOwner();
+    }
+
+    public void removeHouse(String propName)
     {
 
     }

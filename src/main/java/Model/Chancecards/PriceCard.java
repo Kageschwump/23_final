@@ -1,26 +1,18 @@
 package Model.Chancecards;
 
-import Controller.GUIHandler;
 import Model.ChanceCard;
 import Model.Player;
-import gui_fields.GUI_Chance;
-
-import java.awt.*;
 
 public class PriceCard extends ChanceCard {
 
     private String title;
     private String subText;
     private String description;
-    private Color bgColor;
-    private Color fgColor;
-    private GUI_Chance guiChance;
     private int pricePrHouse;
     private int pricePrHotel;
 
     public PriceCard(String title, String subText, String description, int pricePrHouse, int pricePrHotel)
     {
-        this.guiChance = new GUI_Chance(title,subText,description,bgColor,fgColor);
         this.title = title;
         this.subText = subText;
         this.description = description;

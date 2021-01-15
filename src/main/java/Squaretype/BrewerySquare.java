@@ -11,7 +11,7 @@ import gui_fields.GUI_Shipping;
 import java.awt.*;
 
 public class BrewerySquare extends GameSquare {
-    private String name = "Virksomhed";
+    private String name;
     private String description = "Snup en sodavand!";
     private int rent;
     private int price;
@@ -101,5 +101,10 @@ public class BrewerySquare extends GameSquare {
     {
         owner.getAccount().updateScore(price/2);
         owner = null;
+    }
+
+    public void setOwner(Player player)
+    {
+        owner = player;
     }
 }

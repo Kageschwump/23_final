@@ -21,8 +21,6 @@ public class PropertySquare extends GameSquare {
     private int housePrise;
     private int houses;
 
-
-
     public PropertySquare(String name, int price, int rent, String description, Color bgColor, Color fgColor,int housePrises, int rentHouse1, int rentHouse2, int rentHouse3, int rentHouse4, int rentHotel)
     {
         this.name = name;
@@ -159,6 +157,14 @@ public class PropertySquare extends GameSquare {
     public void removeOwner() {
         owner.getAccount().updateScore(price/2);
         owner = null;
+    }
+
+    public void sellHouses(int numOfHousesToSell)
+    {
+        if(houses >= numOfHousesToSell) {
+            houses =- numOfHousesToSell;
+            owner.getAccount().updateScore((housePrise / 2) * numOfHousesToSell);
+        }
     }
 
     public int[] getRent()
