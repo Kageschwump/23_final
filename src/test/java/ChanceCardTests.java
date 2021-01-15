@@ -25,4 +25,5 @@ public class ChanceCardTests
 
         Assert.assertTrue(condition);
     }
+
 }

@@ -84,6 +84,7 @@ public class RuleSet {
                 guiHandler.printMessage("Du har betalt dig ud af fænslet");
                 guiHandler.playerRoll(player.getName());
                 guiHandler.getRoll(facevalue1, facevalue2);
+                totalFaceValue = facevalue1+facevalue2;
                 break;
         }
         return totalFaceValue;

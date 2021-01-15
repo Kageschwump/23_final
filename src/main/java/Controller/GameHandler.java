@@ -47,7 +47,12 @@ public class GameHandler {
 
         guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
         player.updatePlacement(facevalue);
+        int lastPlacement = player.getPlacement();
         gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
+        if(player.getPlacement() != lastPlacement)
+        {
+            gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
+        }
     }
 
     public void startGame()

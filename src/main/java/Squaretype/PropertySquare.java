@@ -113,15 +113,15 @@ public class PropertySquare extends GameSquare {
             }
         }
 
-        if(!bgColor.toString().equals("magenta")||!bgColor.toString().equals("blue"))
+        if(!bgColor.equals(Color.magenta)||!bgColor.equals(Color.blue))
         {
 
-            if (numOfPairs == 3) {
+            if (numOfPairs >= 3) {
                 return true;
             } else return false;
         }else
             {
-                if (numOfPairs == 2) {
+                if (numOfPairs >= 2) {
                     return true;
                 } else return false;
             }

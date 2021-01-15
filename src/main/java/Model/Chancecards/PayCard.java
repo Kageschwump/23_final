@@ -25,6 +25,7 @@ public class PayCard extends ChanceCard {
     @Override
     public void cardFunction(Player player) {
         player.getAccount().updateScore(price);
+        player.getGuiPlayer().setBalance(player.getAccount().getBalance());
     }
 
     @Override
