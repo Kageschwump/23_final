@@ -2,7 +2,6 @@ import Controller.ChancecardHandler;
 import Model.ChanceCard;
 import Model.Player;
 import org.junit.Assert;
-import org.junit.Test;
 
 public class ChanceCardTests
 {

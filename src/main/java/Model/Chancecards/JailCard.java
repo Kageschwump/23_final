@@ -1,5 +1,6 @@
 package Model.Chancecards;
 
+import Controller.GUIHandler;
 import Model.ChanceCard;
 import Model.Player;
 import gui_fields.GUI_Chance;

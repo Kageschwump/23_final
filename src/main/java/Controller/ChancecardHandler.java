@@ -27,7 +27,7 @@ public class ChancecardHandler
         cards[7] = new PayCard("Nye dæk","Betal","De har købt 4 nye dæk til Deres vogn, betal 1000 kr",-1000);
         cards[8] = new PayCard("Parkeringsbøde","Betal","De har fået en parkeringsbøde, betal 200 kr",-200);
         cards[9] = new PayCard("Bilforsikring","Betal","Betal Deres bilforsikring, 1000 kr",-1000);
-        cards[10] = new PayCard("Rejsetold","Betal","De har været udenlands og købt for mange smøger, betal 200 kr i told",200);
+        cards[10] = new PayCard("Rejsetold","Betal","De har været udenlands og købt for mange smøger, betal 200 kr i told",-200);
         cards[11] = new PayCard("Tandlæge","Betal","Tandlægeregningen er dukket op, betal 2000 kr",-2000);
         cards[12] = new PayCard("Klasselotteriet","Modtag","De har vundet i klasselottteriet, modtag 500 kr",+500);
         cards[13] = new PayCard("Klasselotteriet","Modtag","De har vundet i klasselottteriet, modtag 500 kr",+500);

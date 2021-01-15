@@ -1,5 +1,6 @@
 package Model.Chancecards;
 
+import Controller.GUIHandler;
 import Model.ChanceCard;
 import Model.Player;
 import gui_fields.GUI_Chance;
@@ -15,11 +16,9 @@ public class MoveCard extends ChanceCard {
     private Color fgColor;
     private boolean moveToAdress;
     private int placement;
-    private GUI_Chance guiChance;
 
     public MoveCard(String title, String subText, String description,boolean moveToAdress, int placement)
     {
-        this.guiChance = new GUI_Chance(title,subText,description,bgColor,fgColor);
         this.title = title;
         this.subText = subText;
         this.description = description;
