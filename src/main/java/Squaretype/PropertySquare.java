@@ -17,7 +17,6 @@ public class PropertySquare extends GameSquare {
     private int[] rent;
     private Color bgColor;
     private Color fgColor;
-    private boolean pairPriceBonus;
     private GUI_Street fieldType;
     private int housePrise;
     private int houses;
@@ -118,12 +117,14 @@ public class PropertySquare extends GameSquare {
         {
 
             if (numOfPairs >= 3) {
+                rent[0] *= 2;
                 return true;
 
             } else return false;
         }else
             {
                 if (numOfPairs >= 2) {
+                    rent[0] *= 2;
                     return true;
                 } else return false;
             }

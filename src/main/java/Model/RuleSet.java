@@ -86,6 +86,7 @@ public class RuleSet {
                 guiHandler.playerRoll(player.getName());
                 guiHandler.getRoll(facevalue1, facevalue2);
                 totalFaceValue = facevalue1+facevalue2;
+                player.setLastRoll(totalFaceValue);
                 break;
         }
         return totalFaceValue;

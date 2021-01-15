@@ -34,7 +34,7 @@ public class JailCard extends ChanceCard {
             player.getAccount().setJailfree(true);
         } else
             {
-                player.setPlacement(30);
+                player.setPlacement(10);
                 player.setPrison(true);
             }
 
