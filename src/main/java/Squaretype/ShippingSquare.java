@@ -12,7 +12,8 @@ import java.awt.*;
 
 public class ShippingSquare extends GameSquare {
     private String name = "";
-    private String description = "bare kom du!";
+    private String description = "Kom bare du!";
+    private String subName;
     private int rent;
     private int price;
     private boolean owned;
@@ -21,8 +22,8 @@ public class ShippingSquare extends GameSquare {
     private Color fgColor = Color.black;
     private GUI_Shipping fieldType;
 
-    public ShippingSquare(String name, int rent, int price){
-        fieldType = new GUI_Shipping( "default", name ,"",description, Integer.toString(rent),bgColor,fgColor);
+    public ShippingSquare(String name, String subName,int rent, int price){
+        fieldType = new GUI_Shipping( "default", name ,subName,description, Integer.toString(rent),bgColor,fgColor);
         this.name = name;
         this.rent = rent;
         this.price = price;
@@ -34,7 +35,7 @@ public class ShippingSquare extends GameSquare {
 
         String selection;
         if (propertySquareNotOwned()) {
-            selection = guiHandler.getGui().getUserSelection("vil du købe denne ejendom?", "ja", "nej");
+            selection = guiHandler.getGui().getUserSelection("Vil du købe " + getName() + "?", "ja", "nej");
             switch (selection){
                 case ("ja"):
                     owner = player;
