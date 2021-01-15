@@ -41,7 +41,7 @@ public class GameBoard {
         squares[12] = new BrewerySquare("Squash", 100,3000);
         squares[13] = new PropertySquare("Bülowsvej",2800,200,"Velkommen til Bülowsvej", Color.green, Color.black,2000,1000,3000,9000,12500,15000);
         squares[14] = new PropertySquare("Gl. Kongevej",3200,250,"Velkommen til Gl. Kongevej", Color.green, Color.black,2000,1250,3750,10000,14000,18000);
-        squares[15] = new ShippingSquare("Mols-Linien", 500,4000);
+        squares[15] = new ShippingSquare("Mols-Linien",500,4000);
         squares[16] = new PropertySquare("Bernstorffsvej",3600,300,"Velkommen til Bernstorffsvej", Color.gray, Color.black,2000,1400,4000,11000,15000,19000);
         squares[17] = new ChanceCardSquare();
         squares[18] = new PropertySquare("Hellerupvej",3600,300,"Velkommen til Hellrupvej", Color.gray, Color.black,2000,1400,4000,11000,15000,19000);
