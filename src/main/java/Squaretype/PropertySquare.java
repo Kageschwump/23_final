@@ -153,6 +153,11 @@ public class PropertySquare extends GameSquare {
     public Color getColor() {
         return bgColor;
     }
+
+    public int[] getRent()
+    {
+        return rent;
+    }
 }
 
 
