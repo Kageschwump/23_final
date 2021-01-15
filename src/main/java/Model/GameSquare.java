@@ -20,6 +20,7 @@ public abstract class GameSquare {
 
     public abstract Color getColor();
 
+    public abstract void removeOwner();
 
     public ChancecardHandler getChancecardHandler() {
         return chancecardHandler;

@@ -45,4 +45,9 @@ public class VisitJailSquare extends GameSquare {
     public Color getColor() {
         return bgColor;
     }
+
+    @Override
+    public void removeOwner() {
+
+    }
 }

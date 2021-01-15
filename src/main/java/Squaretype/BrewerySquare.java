@@ -96,4 +96,10 @@ public class BrewerySquare extends GameSquare {
     public Color getColor() {
         return bgColor;
     }
+
+    public void removeOwner()
+    {
+        owner.getAccount().updateScore(price/2);
+        owner = null;
+    }
 }

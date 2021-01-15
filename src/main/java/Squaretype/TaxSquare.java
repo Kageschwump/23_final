@@ -52,4 +52,9 @@ public class TaxSquare extends GameSquare {
     public Color getColor() {
         return bgColor;
     }
+
+    @Override
+    public void removeOwner() {
+
+    }
 }

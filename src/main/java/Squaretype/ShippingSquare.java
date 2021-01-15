@@ -35,7 +35,7 @@ public class ShippingSquare extends GameSquare {
 
         String selection;
         if (propertySquareNotOwned()) {
-            selection = guiHandler.getGui().getUserSelection("Vil du købe " + getName() + "?", "ja", "nej");
+            selection = guiHandler.getGui().getUserSelection("Vil du købe " + name + "?", "ja", "nej");
             switch (selection){
                 case ("ja"):
                     owner = player;
@@ -87,7 +87,7 @@ public class ShippingSquare extends GameSquare {
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 
     @Override
@@ -103,5 +103,11 @@ public class ShippingSquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    @Override
+    public void removeOwner() {
+        owner.getAccount().updateScore(price/2);
+        owner = null;
     }
 }

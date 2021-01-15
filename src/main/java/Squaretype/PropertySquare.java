@@ -52,6 +52,7 @@ public class PropertySquare extends GameSquare {
                     player.getAccount().addProperty(name,bgColor);
                     player.getAccount().updateScore(-price);
                     player.getGuiPlayer().setBalance(player.getAccount().getBalance());
+                    checkPairs(player);
                     fieldType.setOwnableLabel(player.getName());
                     fieldType.setBorder(player.getGuiPlayer().getPrimaryColor());
                     break;
@@ -118,15 +119,14 @@ public class PropertySquare extends GameSquare {
             }
         }
 
-        if(!bgColor.equals(Color.magenta)||!bgColor.equals(Color.blue))
+        if(!bgColor.toString().equals(Color.magenta.toString()) || !bgColor.toString().equals(Color.blue.toString()))
         {
 
             if (numOfPairs >= 3) {
                 rent[0] = rent[0] * 2;
                 return true;
             } else return false;
-        }else
-            {
+        }else {
                 if (numOfPairs >= 2) {
                     rent[0] = rent[0] * 2;
                     return true;
@@ -153,6 +153,12 @@ public class PropertySquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    @Override
+    public void removeOwner() {
+        owner.getAccount().updateScore(price/2);
+        owner = null;
     }
 
     public int[] getRent()
