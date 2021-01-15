@@ -2,11 +2,13 @@ import Controller.ChancecardHandler;
 import Model.ChanceCard;
 import Model.Player;
 import org.junit.Assert;
+import org.junit.Test;
 
 public class ChanceCardTests
 {
     ChancecardHandler chancecardHandler =  new ChancecardHandler();
 
+    @Test
     public void payCardFunktionTest()
     {
         Player player1 = new Player(1,"HC",22,null,3000);
@@ -23,7 +25,9 @@ public class ChanceCardTests
             condition = true;
         }
 
-        Assert.assertTrue(condition);
+        Assert.assertFalse(condition);
+
+
     }
 
 }
