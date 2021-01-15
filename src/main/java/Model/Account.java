@@ -21,7 +21,7 @@ public class Account {
 
     public void addProperty(String propertyName, Color color)
     {
-        if(properties.length == 1)
+        if(properties[0][0] == null)
         {
             properties[0][0] = propertyName;
             properties[0][1] = color.toString();
@@ -71,7 +71,7 @@ public class Account {
 
     public void addShipping(String propertyName)
     {
-        if(shippingProp.length == 1)
+        if(shippingProp[0] == null)
         {
             shippingProp[0] = propertyName;
         } else {
@@ -86,7 +86,7 @@ public class Account {
 
     public void addBrewery(String propertyName)
     {
-        if(breweryProp.length == 1)
+        if(breweryProp[0] == null)
         {
             breweryProp[0] = propertyName;
         } else {
