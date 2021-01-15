@@ -22,8 +22,6 @@ public class GameHandler {
 
     public void round(Player player)
     {
-
-
         shuffleCup.roll();
         int faceValue1 = shuffleCup.getDice1().getFaceValue();
         int faceValue2 = shuffleCup.getDice2().getFaceValue();
