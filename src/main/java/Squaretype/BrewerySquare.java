@@ -47,7 +47,7 @@ public class BrewerySquare extends GameSquare {
                     break;
             }
         } else if (player != owner) {
-            player.getAccount().updateScore(priceForLanding(player.getLastRoll()));
+            player.getAccount().updateScore(-1 * priceForLanding(player.getLastRoll()));
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
             owner.getAccount().updateScore(priceForLanding(player.getLastRoll()));
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
@@ -68,10 +68,10 @@ public class BrewerySquare extends GameSquare {
         switch (Integer.toString(numOfBrewery))
         {
             case "1":
-                priceToPay = diceEyes * (-100);
+                priceToPay = diceEyes * 100;
                 break;
             case "2":
-                priceToPay= diceEyes * (-200);
+                priceToPay= diceEyes * 200;
                 break;
         }
         return priceToPay;

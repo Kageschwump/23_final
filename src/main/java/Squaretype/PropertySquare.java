@@ -43,7 +43,6 @@ public class PropertySquare extends GameSquare {
     @Override
     public void function(Player player, GUIHandler guiHandler) {
         fieldType.setCar(player.getGuiPlayer(),true);
-
         String selection;
         if (propertySquareNotOwned()) {
             selection = guiHandler.getGui().getUserSelection("Vil du købe " + getName() + "?", "Ja", "Nej");
@@ -110,7 +109,11 @@ public class PropertySquare extends GameSquare {
         int numOfPairs = 0;
 
         for (int i = 0; i < otherProperties.length; i++) {
-            if (otherProperties[i][1].equals(bgColor.toString())) {
+
+            if(otherProperties[i][1] == null){
+                break;
+            } else if (otherProperties[i][1].equals(bgColor.toString()))
+            {
                 numOfPairs++;
             }
         }
@@ -119,11 +122,13 @@ public class PropertySquare extends GameSquare {
         {
 
             if (numOfPairs >= 3) {
+                rent[0] = rent[0] * 2;
                 return true;
             } else return false;
         }else
             {
                 if (numOfPairs >= 2) {
+                    rent[0] = rent[0] * 2;
                     return true;
                 } else return false;
             }
@@ -148,6 +153,11 @@ public class PropertySquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    public int[] getRent()
+    {
+        return rent;
     }
 }
 
