@@ -51,6 +51,7 @@ public class GameHandler {
         gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
         if(player.getPlacement() != lastPlacement)
         {
+            guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getSquares()[lastPlacement].getGuiField());
             guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
             gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
         }

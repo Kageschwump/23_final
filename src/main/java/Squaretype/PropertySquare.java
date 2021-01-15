@@ -108,7 +108,10 @@ public class PropertySquare extends GameSquare {
         int numOfPairs = 0;
 
         for (int i = 0; i < otherProperties.length; i++) {
-            if (otherProperties[i][1].equals(bgColor.toString())) {
+            if(otherProperties[i][1] == null)
+            {
+                break;
+            } else if (otherProperties[i][1].equals(bgColor.toString())) {
                 numOfPairs++;
             }
         }
