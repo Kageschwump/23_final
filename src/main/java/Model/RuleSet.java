@@ -58,9 +58,9 @@ public class RuleSet {
         return winner;
     }
 
-    public int prisonEscape(Player player, String userInput, int facevalue1, int facevalue2)
+    public int[] prisonEscape(Player player, String userInput, int facevalue1, int facevalue2)
     {
-        int totalFaceValue = 0;
+        int[] faceValues = new int[2];
         switch (userInput)
         {
             case "Terninger":
@@ -69,7 +69,8 @@ public class RuleSet {
                     guiHandler.playerRoll(player.getName());
                     guiHandler.getRoll(facevalue1, facevalue2);
                     player.setPrison(false);
-                    totalFaceValue = facevalue1+facevalue2;
+                    faceValues[0] = facevalue1;
+                    faceValues[1] = facevalue2;
                     guiHandler.printMessage("Tilykke du er ude af fængslet");
                 } else
                     {
@@ -83,13 +84,9 @@ public class RuleSet {
                 player.getGuiPlayer().setBalance(player.getAccount().getBalance());
                 player.setPrison(false);
                 guiHandler.printMessage("Du har betalt dig ud af fænslet");
-                guiHandler.playerRoll(player.getName());
-                guiHandler.getRoll(facevalue1, facevalue2);
-                totalFaceValue = facevalue1+facevalue2;
-                player.setLastRoll(totalFaceValue);
                 break;
         }
-        return totalFaceValue;
+        return faceValues;
     }
 
 }

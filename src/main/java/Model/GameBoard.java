@@ -97,13 +97,15 @@ public class GameBoard {
 
     public PropertySquare[] findPlayerProperties(String[] propNames)
     {
+        int counter = 0;
         PropertySquare[] propertySquares = new PropertySquare[propNames.length];
 
         for(int i = 0; i < propNames.length; i++)
         {
-            if(propNames[i].equals(getSquares()[i].getName()))
+            if(propNames[counter].equals(getSquares()[i].getName()))
             {
-                propertySquares[i] = (PropertySquare) getSquares()[i];
+                propertySquares[counter] = (PropertySquare) getSquares()[i];
+                counter++;
             }
         }
         return propertySquares;

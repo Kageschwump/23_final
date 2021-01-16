@@ -26,34 +26,42 @@ public class GameHandler {
         shuffleCup.roll();
         int faceValue1 = shuffleCup.getDice1().getFaceValue();
         int faceValue2 = shuffleCup.getDice2().getFaceValue();
-        int facevalue = faceValue1 + faceValue2;
-        player.setLastRoll(facevalue);
+        int[] facevalues;
+        String playerChoice = "";
+        player.setLastRoll(faceValue1+faceValue2);
 
+        guiHandler.printMessage(player.getName() +"'s tur!");
         // Fængsel eller ikke fængsel
         if(player.isPrison())
         {
+            guiHandler.printMessage("Du er i fængsel");
             if(player.getAccount().getBalance() < 1000) {
-                facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger"), faceValue1, faceValue2);
+                facevalues = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger"), faceValue1, faceValue2);
+                playersRound(player, facevalues[0], facevalues[1]);
             }else
             {
-                facevalue = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"), faceValue1, faceValue2);
+                facevalues = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"), faceValue1, faceValue2);
+                playersRound(player, facevalues[0], facevalues[1]);
             }
         }else
             {
-                guiHandler.playerRoll(player.getName());
-                guiHandler.getRoll(faceValue1, faceValue2);
+                while (!playerChoice.equals("Rul")){
+                    playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du foretage dig?", "Rul", "Sælg");
+                    switch (playerChoice) {
+                        case "Rul":
+                            playersRound(player, faceValue1, faceValue2);
+                            break;
+                        case "Sælg":
+                            playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?", "Hus", "Ejendom");
+                            if (playerChoice.equals("Hus")) {
+                                sellHouse(player);
+                            } else if (playerChoice.equals("Ejendom")) {
+                                sellProperty(player);
+                            }
+                            break;
+                    }
+                }
             }
-
-        guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
-        player.updatePlacement(facevalue);
-        int lastPlacement = player.getPlacement();
-        gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
-        if(player.getPlacement() != lastPlacement)
-        {
-            guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getSquares()[lastPlacement].getGuiField());
-            guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
-            gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
-        }
     }
 
     public void startGame()
@@ -75,7 +83,6 @@ public class GameHandler {
                 starter = 0;
             }
         }
-        // Determine winner metoden skal laves om
         guiHandler.printMessage(ruleset.determineWinner(playerHandler.getPlayers()).getName() + " vandt!!!");
 
     }
@@ -92,82 +99,73 @@ public class GameHandler {
 
     public void sellProperty(Player player)
     {
-        String playerOption = null;
-        String[] properties = new String[player.getAccount().getProperties().length];
-        String prop;
         int counter = 0;
-        if(player.getAccount().getBalance() > 0)
+        String prop;
+        int numOfPropWithoutHouses;
+        String[] properties = new String[player.getAccount().amountOfProperties()];
+
+        for(int i = 0; i < gameBoard.getSquares().length; i++)
         {
-            playerOption = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?\n Du modtager halvdelen af ejendommens eller husets pris", "Ejendom", "Huse", "Rul");
-
-        }else if(player.getAccount().amountOfProperties() < 0)
+            if(gameBoard.getSquares()[i].getName().equals(player.getAccount().getProperties()[counter][0]))
             {
-                playerOption = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?\n Du modtager halvdelen af ejendommens eller husets pris", "Ejendom", "Huse");
+                properties[counter] = gameBoard.getSquares()[i].getName();
+                counter++;
             }
-        switch (playerOption) {
-            case "Ejendom":
+        }
 
-                for (int i = 0; i < player.getAccount().getProperties().length; i++) {
-                    if (player.getAccount().getProperties()[i][0] != null) {
-                        properties[counter] = player.getAccount().getProperties()[i][0];
-                        counter++;
-                    }
-                }
-                PropertySquare[] iRanOutOfVariableNames = new PropertySquare[counter];
-                int o = 0;
-                for(int i = 0; i < gameBoard.getSquares().length; i++){
-                    if (gameBoard.getSquares()[i].getName().equals(properties[o])){
-                        iRanOutOfVariableNames[o] = gameBoard.findProp(properties[o]);
-                        o++;
-                    }
-                }
-                int u = 0;
-                String[] propertiesWithoutHouses = new String[iRanOutOfVariableNames.length];
-                for(int i = 0; i < iRanOutOfVariableNames.length; i++){
-                    if(iRanOutOfVariableNames[i].getHouses()<1){
-                        propertiesWithoutHouses[u] = iRanOutOfVariableNames[i].getName();
-                        u++;
-                    }
-                }
-                String[] propertiesToSell = new String[u];
-                for(int i = 0; i<=u; i++){
-                    propertiesToSell[i] = propertiesWithoutHouses[i];
-                }
-                prop = guiHandler.getGui().getUserSelection("Hvilken ejendom?", propertiesToSell);
-                player.getAccount().deleteProperty(prop);
-                gameBoard.resetOwnership(prop);
-                break;
+        numOfPropWithoutHouses = gameBoard.findPlayerProperties(properties).length - gameBoard.playerPropWithHouses(properties).length;
+        String[] choices = new String[numOfPropWithoutHouses];
+        counter = 0;
+        for(int i = 0; i < numOfPropWithoutHouses; i++)
+        {
+            if(gameBoard.findPlayerProperties(properties)[i].getName() != gameBoard.playerPropWithHouses(properties)[counter].getName())
+            {
+                choices[counter] = gameBoard.findPlayerProperties(properties)[i].getName();
+                counter++;
+            }
+        }
 
-            case "Huse":
-                String[] housePropertyNames = new String[22];
-                PropertySquare[] ownedSquares = new PropertySquare[player.getAccount().amountOfProperties()];
-                int housePropertyCounter = 0;
-                for (int i = 0; i < gameBoard.getSquares().length; i++) {
-                    if (gameBoard.getSquares()[i].getName().equals(player.getAccount().getProperties()[counter][0])) {
-                        ownedSquares[counter] = gameBoard.findProp(player.getAccount().getProperties()[counter][0]);
-                        if (ownedSquares[counter].getHouses() > 0) {
-                            housePropertyNames[counter] = gameBoard.getSquares()[i].getName();
-                            housePropertyCounter++;
-                        }
-                        counter++;
-                    }
-                }
+        prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge?", choices);
+        player.getAccount().deleteProperty(prop);
+        gameBoard.resetOwnership(prop);
+    }
 
-                String[] Choices = new String[housePropertyCounter];
-                for (int i = 0; i <= ownedSquares.length; i++) {
-                    Choices[i] = housePropertyNames[i];
-                }
-                prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge et hus fra?", Choices);
-                for (int i = 0; i < properties.length; i++) {
-                    if (prop.equals(properties[i])) {
-                        ownedSquares[i].sellHouses(1);
-                    }
-                }
+    public void sellHouse(Player player)
+    {
+        int counter = 0;
+        String[] playerProps = new String[player.getAccount().amountOfProperties()];
+        for(int i = 0; i < gameBoard.getSquares().length; i++)
+        {
+            if(gameBoard.getSquares()[i].getName().equals(player.getAccount().getProperties()[counter][0]))
+            {
+                playerProps[counter] = gameBoard.getSquares()[i].getName();
+                counter++;
+            }
+        }
+        PropertySquare[] propertySquares = gameBoard.playerPropWithHouses(playerProps);
+        playerProps = new String[propertySquares.length];
+        for(int x = 0; x < propertySquares.length; x++)
+        {
+            playerProps[x] = propertySquares[x].getName();
+        }
+        String prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge et hus fra?", playerProps);
+        gameBoard.findProp(prop).sellHouses(1);
 
-                break;
-            case "rul":
+    }
 
+    public void playersRound(Player player, int faceValue1, int faceValue2)
+    {
+        guiHandler.getRoll(faceValue1, faceValue2);
 
+        guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
+        player.setLastRoll(faceValue1+faceValue2);
+        player.updatePlacement(faceValue1 + faceValue2);
+        int lastPlacement = player.getPlacement();
+        gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
+        if(player.getPlacement() != lastPlacement) {
+            guiHandler.resetCars(player, playerHandler.getPlayers(), gameBoard.getSquares()[lastPlacement].getGuiField());
+            guiHandler.resetCars(player, playerHandler.getPlayers(), gameBoard.getFields()[player.getPlacement()]);
+            gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
         }
     }
 }
