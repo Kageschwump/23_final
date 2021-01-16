@@ -33,11 +33,14 @@ public class Account {
 
     public void deleteProperty(String propertyName)
     {
+        String[][] newPropArray = new String[24][2];
+        int counter = 0;
         for(int i = 0; i < properties.length; i++) {
-            if (properties[i][0] == null)
+            if (properties[i][0] != null || !properties[i][0].equals(propertyName))
             {
-                properties[i][0] = propertyName;
-                break;
+                newPropArray[counter][0] = properties[i][0];
+                newPropArray[counter][1] = properties[i][1];
+                counter++;
             }
         }
     }
@@ -109,6 +112,20 @@ public class Account {
     public int numOfHotels()
     {
         return hotel;
+    }
+
+    public int amountOfProperties()
+    {
+        int counter = 0;
+        for(int i = 0; i < properties.length; i++)
+        {
+            if(properties[i][0] == null)
+            {
+                counter++;
+            }
+        }
+
+        return counter;
     }
 
 }

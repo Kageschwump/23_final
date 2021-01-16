@@ -167,6 +167,11 @@ public class PropertySquare extends GameSquare {
         }
     }
 
+    public int getHouses()
+    {
+        return houses;
+    }
+
     public int[] getRent()
     {
         return rent;
