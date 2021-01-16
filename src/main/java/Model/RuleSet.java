@@ -17,16 +17,11 @@ public class RuleSet {
 
     public boolean gameOver(Player[] players)
     {
-        boolean isGameOver = false;
-        for(int i = 0; i < players.length; i++)
-        {
-            if (players[i].getAccount().getBalance() < 0)
-            {
-                isGameOver = true;
-                break;
-            }
+        if(players.length == 1){
+            return true;
+        }else{
+            return false;
         }
-        return isGameOver;
     }
 
     public int determineStarter(Player[] players)

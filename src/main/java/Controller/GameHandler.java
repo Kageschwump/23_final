@@ -45,6 +45,11 @@ public class GameHandler {
         guiHandler.resetCars(player,playerHandler.getPlayers(),gameBoard.getFields()[player.getPlacement()]);
         playerHandler.updatePlacement(facevalue, player);
         gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
+
+        if(player.getAccount().getBalance() <= 0){
+            guiHandler.printMessage(player + " er gåeet konkurs og er ude af spillet");
+            playerHandler.removePlayer(player);
+        }
     }
 
     public void startGame()
