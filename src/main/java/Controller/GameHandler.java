@@ -163,6 +163,7 @@ public class GameHandler {
                         ownedSquares[i].sellHouses(1);
                     }
                 }
+
                 break;
             case "rul":
 

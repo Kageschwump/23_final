@@ -95,8 +95,45 @@ public class GameBoard {
         propertySquare.removeOwner();
     }
 
-    public void removeHouse(String propName)
+    public PropertySquare[] findPlayerProperties(String[] propNames)
     {
+        PropertySquare[] propertySquares = new PropertySquare[propNames.length];
+
+        for(int i = 0; i < propNames.length; i++)
+        {
+            if(propNames[i].equals(getSquares()[i].getName()))
+            {
+                propertySquares[i] = (PropertySquare) getSquares()[i];
+            }
+        }
+        return propertySquares;
+    }
+
+    public PropertySquare[] playerPropWithHouses(String[] propNames)
+    {
+        PropertySquare[] playerProperties = findPlayerProperties(propNames);
+        int numOfPropWithHouses = 0;
+
+        for(int i = 0; i < playerProperties.length; i++)
+        {
+            if(playerProperties[i].getHouses() > 0)
+            {
+                numOfPropWithHouses++;
+            }
+        }
+
+        PropertySquare[] propWithHouse = new PropertySquare[numOfPropWithHouses];
+        int counter= 0;
+
+        for(int i = 0; i < playerProperties.length; i++)
+        {
+            if(playerProperties[i].getHouses() > 0)
+            {
+                propWithHouse[counter] = playerProperties[i];
+                counter++;
+            }
+        }
+        return propWithHouse;
 
     }
 
