@@ -29,6 +29,7 @@ public class GameHandler {
         int faceValue1 = shuffleCup.getDice1().getFaceValue();
         int faceValue2 = shuffleCup.getDice2().getFaceValue();
         int facevalue = faceValue1 + faceValue2;
+        player.setLastRoll(facevalue);
 
         if(player.isPrison())
         {
