@@ -26,8 +26,8 @@ public class GameHandler {
         shuffleCup.roll();
         int faceValue1 = shuffleCup.getDice1().getFaceValue();
         int faceValue2 = shuffleCup.getDice2().getFaceValue();
-        int[] facevalues;
         String playerChoice = "";
+        boolean haveRolled = false;
         player.setLastRoll(faceValue1+faceValue2);
 
         guiHandler.printMessage(player.getName() +"'s tur!");
@@ -36,29 +36,31 @@ public class GameHandler {
         {
             guiHandler.printMessage("Du er i fængsel");
             if(player.getAccount().getBalance() < 1000) {
-                facevalues = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger"), faceValue1, faceValue2);
+                ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger"), faceValue1, faceValue2);
             }else
             {
-                facevalues = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"), faceValue1, faceValue2);
+                ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"), faceValue1, faceValue2);
             }
         }
 
-        while (!playerChoice.equals("Rul")||!player.isPrison()){
+        while (!haveRolled && !player.isPrison()){
             playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du foretage dig?", "Rul", "Sælg");
             switch (playerChoice) {
                 case "Rul":
                     playersRound(player, faceValue1, faceValue2);
+                    haveRolled = true;
                     break;
-                    case "Sælg":
-                        playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?", "Hus", "Ejendom");
-                        if (playerChoice.equals("Hus")) {
-                                sellHouse(player);
-                        } else if (playerChoice.equals("Ejendom")) {
-                                sellProperty(player);
-                        }
-                        break;
+
+                case "Sælg":
+                    playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?", "Hus", "Ejendom");
+                    if (playerChoice.equals("Hus")) {
+                        sellHouse(player);
+                    } else if (playerChoice.equals("Ejendom")) {
+                        sellProperty(player);
                     }
-                }
+                    break;
+            }
+        }
 
     }
 

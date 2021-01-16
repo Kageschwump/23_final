@@ -58,7 +58,7 @@ public class RuleSet {
         return winner;
     }
 
-    public int[] prisonEscape(Player player, String userInput, int facevalue1, int facevalue2)
+    public void prisonEscape(Player player, String userInput, int facevalue1, int facevalue2)
     {
         int[] faceValues = new int[2];
         switch (userInput)
@@ -87,7 +87,6 @@ public class RuleSet {
                 guiHandler.printMessage("Du har betalt dig ud af fænslet");
                 break;
         }
-        return faceValues;
     }
 
 }
