@@ -37,31 +37,29 @@ public class GameHandler {
             guiHandler.printMessage("Du er i fængsel");
             if(player.getAccount().getBalance() < 1000) {
                 facevalues = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger"), faceValue1, faceValue2);
-                playersRound(player, facevalues[0], facevalues[1]);
             }else
             {
                 facevalues = ruleset.prisonEscape(player, guiHandler.getGui().getUserButtonPressed("Hvordan vil du komme ud af fængsel?", "Terninger", "Betal"), faceValue1, faceValue2);
-                playersRound(player, facevalues[0], facevalues[1]);
             }
-        }else
-            {
-                while (!playerChoice.equals("Rul")){
-                    playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du foretage dig?", "Rul", "Sælg");
-                    switch (playerChoice) {
-                        case "Rul":
-                            playersRound(player, faceValue1, faceValue2);
-                            break;
-                        case "Sælg":
-                            playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?", "Hus", "Ejendom");
-                            if (playerChoice.equals("Hus")) {
+        }
+
+        while (!playerChoice.equals("Rul")||!player.isPrison()){
+            playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du foretage dig?", "Rul", "Sælg");
+            switch (playerChoice) {
+                case "Rul":
+                    playersRound(player, faceValue1, faceValue2);
+                    break;
+                    case "Sælg":
+                        playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?", "Hus", "Ejendom");
+                        if (playerChoice.equals("Hus")) {
                                 sellHouse(player);
-                            } else if (playerChoice.equals("Ejendom")) {
+                        } else if (playerChoice.equals("Ejendom")) {
                                 sellProperty(player);
-                            }
-                            break;
+                        }
+                        break;
                     }
                 }
-            }
+
     }
 
     public void startGame()
