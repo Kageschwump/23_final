@@ -104,49 +104,37 @@ public class GameHandler {
             {
                 playerOption = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?\n Du modtager halvdelen af ejendommens eller husets pris", "Ejendom", "Huse");
             }
+
+        for(int i = 0; i < player.getAccount().getProperties().length; i++)
+        {
+            if(player.getAccount().getProperties()[i][0] != null)
+            {
+                properties[counter] = player.getAccount().getProperties()[i][0];
+                counter++;
+            }
+        }
         switch (playerOption)
         {
             case "Ejendom":
-
-                for(int i = 0; i < player.getAccount().getProperties().length; i++)
-                {
-                    if(player.getAccount().getProperties()[i][0] != null)
-                    {
-                        properties[counter] = player.getAccount().getProperties()[i][0];
-                        counter++;
-                    }
-                }
                 prop = guiHandler.getGui().getUserSelection("Hvilken ejendom?",properties);
                 player.getAccount().deleteProperty(prop);
                 gameBoard.resetOwnership(prop);
                 break;
             case "Huse":
-
-                PropertySquare[] ownedSquares = new PropertySquare[player.getAccount().amountOfProperties()];
-
-
-                for(int i = 0; i < gameBoard.getSquares().length; i++)
+                PropertySquare[] propertySquares = gameBoard.playerPropWithHouses(properties);
+                for(int x = 0; x < propertySquares.length; x++)
                 {
-                    if(gameBoard.getSquares()[i].getName().equals(player.getAccount().getProperties()[i][0]))
-                    {
-                        if(ownedSquares[counter].getHouses() > 0)
-                        {
-                            ownedSquares[counter] = (PropertySquare) gameBoard.getSquares()[i];
-                        }
-                        counter++;
-                    }
+                    if()
                 }
-                prop = guiHandler.getGui().getUserSelection("Hvilken ejendom?",properties);
-                for(int i = 0; i < properties.length; i++)
+                prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge et hus fra?",properties);
+                for(int i = 0; i < propertySquares.length;i++)
                 {
-                    if(prop.equals(properties[i]))
-                    {
-                        ownedSquares[i].sellHouses();
-                    }
+                    if(propertySquares[i].getName().equals(prop))
                 }
-
                 break;
+
             case "Rul":
+                break;
 
         }
     }
