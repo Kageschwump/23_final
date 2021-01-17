@@ -149,10 +149,15 @@ public class GameHandler {
         int lastPlacement = player.getPlacement();
         gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
         if(player.getPlacement() != lastPlacement) {
-            guiHandler.resetCars(player, playerHandler.getPlayers(), gameBoard.getFields()[lastPlacement]);
-            guiHandler.resetCars(player, playerHandler.getPlayers(), gameBoard.getFields()[player.getPlacement()]);
+            gameBoard.getFields()[lastPlacement].setCar(player.getGuiPlayer(),false);
+            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),false);
+            lastPlacement = player.getPlacement();
             gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
-
+            if(player.getPlacement() != lastPlacement) {
+                gameBoard.getFields()[lastPlacement].setCar(player.getGuiPlayer(),false);
+                gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),false);
+                gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
+            }
         }
 
     }
