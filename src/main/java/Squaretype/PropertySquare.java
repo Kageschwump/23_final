@@ -165,6 +165,7 @@ public class PropertySquare extends GameSquare {
         if(houses >= numOfHousesToSell) {
             houses =- numOfHousesToSell;
             owner.getAccount().addHouse(-numOfHousesToSell);
+            fieldType.setHouses(houses);
             owner.getAccount().updateScore((housePrise / 2) * numOfHousesToSell);
         }
     }
