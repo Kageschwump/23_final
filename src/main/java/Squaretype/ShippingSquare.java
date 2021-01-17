@@ -59,19 +59,28 @@ public class ShippingSquare extends GameSquare {
     public int priceForLanding()
     {
         int priceToPay = 0;
-        int numOfShipping = owner.getAccount().getShippingProp().length;
-        switch (Integer.toString(numOfShipping))
+        int numOfShipping = 0;
+
+        for(int i = 0; i < owner.getAccount().getShippingProp().length; i++)
         {
-            case "1":
+            if(owner.getAccount().getShippingProp()[i] != null)
+            {
+                numOfShipping++;
+            }
+        }
+
+        switch (numOfShipping)
+        {
+            case 1:
                 priceToPay = 500;
                 break;
-            case "2":
+            case 2:
                 priceToPay = 1000;
                 break;
-            case "3":
+            case 3:
                 priceToPay = 2000;
                 break;
-            case "4":
+            case 4:
                 priceToPay = 4000;
                 break;
         }
@@ -109,5 +118,9 @@ public class ShippingSquare extends GameSquare {
     public void removeOwner() {
         owner.getAccount().updateScore(price/2);
         owner = null;
+    }
+    public void setOwner(Player player)
+    {
+        owner = player;
     }
 }

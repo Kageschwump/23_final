@@ -15,8 +15,8 @@ public class Account {
         this.balance = balance;
         // 2d array med property navn og farve
         properties = new String[24][2];
-        breweryProp = new String[1];
-        shippingProp = new String[1];
+        breweryProp = new String[2];
+        shippingProp = new String[4];
     }
 
     public void addProperty(String propertyName, Color color)

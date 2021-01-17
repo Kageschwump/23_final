@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.*;
+import Squaretype.PropertySquare;
 
 public class GameHandler {
 

@@ -33,7 +33,7 @@ public class BrewerySquare extends GameSquare {
 
         String selection;
         if (propertySquareNotOwned()) {
-            selection = guiHandler.getGui().getUserSelection("vil du købe denne ejendom?", "ja", "nej");
+            selection = guiHandler.getGui().getUserSelection("vil du købe "+ name +"?", "ja", "nej");
             switch (selection){
                 case ("ja"):
                     owner = player;

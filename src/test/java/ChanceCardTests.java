@@ -20,12 +20,12 @@ public class ChanceCardTests
         chancecardHandler.getCards()[9].cardFunction(player1);
         chanceCard.cardFunction(player2);
 
-        if(player2.getAccount().getBalance() == 3000 && player1.getAccount().getBalance() == 2000)
+        if(player2.getAccount().getBalance() == 2000 && player1.getAccount().getBalance() == 2000)
         {
             condition = true;
         }
 
-        Assert.assertFalse(condition);
+        Assert.assertTrue(condition);
 
 
     }
