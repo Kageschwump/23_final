@@ -33,6 +33,50 @@ public class PropertyTest
         int rentAfter = propertySquare.getRent()[0];
 
         Assert.assertEquals(200,rentAfter);
-        System.out.println(rentAfter);
+    }
+
+    @Test
+    public void testRentIfNotAllPairsOwned()
+    {
+        GameBoard gameBoard = new GameBoard();
+        gameBoard.createGameBoard();
+
+        Player player = new Player(1,"HC",22,null,3000);
+        Color color = Color.orange;
+        String propName1 = "Roskildevej";
+        String propName3 = "Allégade";
+        PropertySquare propertySquare = (PropertySquare) gameBoard.getSquares()[8];
+
+        player.getAccount().addProperty(propName1,color);
+        player.getAccount().addProperty(propName3,color);
+
+        propertySquare.checkPairs(player);
+
+        int rentAfter = propertySquare.getRent()[0];
+
+        Assert.assertEquals(100,rentAfter);
+    }
+
+    @Test
+    public void testRentIfTwoColorPairOwned()
+    {
+        GameBoard gameBoard = new GameBoard();
+        gameBoard.createGameBoard();
+
+        Player player = new Player(1,"HC",22,null,3000);
+        Color color = Color.blue;
+        String propName1 = "Hvidovrevej";
+        String propName3 = "Rødovrevej";
+        PropertySquare propertySquare = (PropertySquare) gameBoard.getSquares()[3];
+
+        player.getAccount().addProperty(propName1,color);
+        player.getAccount().addProperty(propName3,color);
+
+        propertySquare.checkPairs(player);
+
+        int rentAfter = propertySquare.getRent()[0];
+
+        Assert.assertEquals(100,rentAfter);
+
     }
 }

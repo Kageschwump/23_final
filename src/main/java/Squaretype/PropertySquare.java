@@ -114,20 +114,19 @@ public class PropertySquare extends GameSquare {
                 numOfPairs++;
             }
         }
-
-        if(!bgColor.toString().equals(Color.magenta.toString()) || !bgColor.toString().equals(Color.blue.toString()))
+        if(!bgColor.toString().equals(Color.magenta.toString()) && !bgColor.toString().equals(Color.blue.toString()))
         {
 
-            if (numOfPairs >= 3) {
+            if (numOfPairs == 3) {
                 rent[0] = rent[0] * 2;
                 return true;
             } else return false;
         }else {
-                if (numOfPairs >= 2) {
+                if (numOfPairs == 2) {
                     rent[0] = rent[0] * 2;
                     return true;
                 } else return false;
-            }
+        }
     }
 
     @Override
