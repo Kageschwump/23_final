@@ -60,12 +60,11 @@ public class ShippingSquare extends GameSquare {
     {
         int priceToPay = 0;
         int numOfShipping = 0;
-
-        for(int i = 0; i < owner.getAccount().getShippingProp().length; i++)
-        {
-            if(owner.getAccount().getShippingProp()[i] != null)
-            {
-                numOfShipping++;
+        if (owner != null) {
+            for (int i = 0; i < owner.getAccount().getShippingProp().length; i++) {
+                if (owner.getAccount().getShippingProp()[i] != null) {
+                    numOfShipping++;
+                }
             }
         }
 
