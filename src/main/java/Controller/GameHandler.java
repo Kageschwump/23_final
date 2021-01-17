@@ -99,20 +99,14 @@ public class GameHandler {
         int numOfProp;
         String[] properties = new String[player.getAccount().amountOfProperties()];
         int u = 0;
-        int o = 0;
 
         if (player.getAccount().amountOfProperties() > 0) {
             for (int i = 0; i < player.getAccount().getProperties().length; i++) {
-                if (player.getAccount().getProperties()[o][0] != null) {
-                    properties[u] = player.getAccount().getProperties()[o][0];
-                    o++;
+                if (player.getAccount().getProperties()[i][0] != null) {
+                    properties[u] = player.getAccount().getProperties()[i][0];
                     u++;
-                } else if (player.getAccount().getProperties() == null) {
-                    o++;
                 }
-
             }
-
 
             prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge?", properties);
             player.getAccount().deleteProperty(prop);
