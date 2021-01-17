@@ -52,12 +52,8 @@ public class GameHandler {
                     break;
 
                 case "Sælg":
-                    playerChoice = guiHandler.getGui().getUserButtonPressed("Hvad vil du sælge?", "Hus", "Ejendom");
-                    if (playerChoice.equals("Hus")) {
-                        sellHouse(player);
-                    } else if (playerChoice.equals("Ejendom")) {
+                    guiHandler.printMessage("Hvilken ejendom vil du sælge? \nHvis der er huse på ejendommen bliver disse også solgt");
                         sellProperty(player);
-                    }
                     break;
             }
         }
@@ -99,30 +95,30 @@ public class GameHandler {
     }
 
     public void sellProperty(Player player) {
-        int counter = 0;
         String prop;
-        int numOfPropWithoutHouses;
+        int numOfProp;
         String[] properties = new String[player.getAccount().amountOfProperties()];
+        int u = 0;
+        int o = 0;
+        int counter = 0;
 
         if (player.getAccount().amountOfProperties() > 0) {
-            int u = 0;
-            int o = 0;
-            if(player.getAccount().getProperties()[o][0] != null){
-                properties[u] = player.getAccount().getProperties()[o][0];
-                o++;
-                u++;
-            }
-            else if(player.getAccount().getProperties() == null){
-                o++;
-            }
-            else if(o >= player.getAccount().getProperties().length){
+            for (int i = 0; i < player.getAccount().getProperties().length; i++) {
+                if (player.getAccount().getProperties()[o][0] != null) {
+                    properties[u] = player.getAccount().getProperties()[o][0];
+                    o++;
+                    u++;
+                } else if (player.getAccount().getProperties() == null) {
+                    o++;
+                }
 
             }
 
-            numOfPropWithoutHouses = gameBoard.findPlayerProperties(properties).length - gameBoard.playerPropWithHouses(properties).length;
-            String[] choices = new String[numOfPropWithoutHouses];
-            counter = 0;
-            for (int i = 0; i < numOfPropWithoutHouses; i++) {
+        /*numOfProp = u + 1 ;
+        String[] choices = new String[numOfProp];
+        for (int i = 0; i < numOfProp; i++) {
+
+
                 if(gameBoard.playerPropWithHouses(properties).length == 0) {
                     choices[counter] = gameBoard.findPlayerProperties(properties)[i].getName();
                     counter++;
@@ -133,9 +129,9 @@ public class GameHandler {
                         counter++;
                     }
                 }
-            }
+            } */
 
-            prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge?", choices);
+            prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge?", properties);
             player.getAccount().deleteProperty(prop);
             gameBoard.resetOwnership(prop);
         }
@@ -144,7 +140,7 @@ public class GameHandler {
         }
     }
 
-    public void sellHouse(Player player) {
+    /*public void sellHouse(Player player) {
         if (player.getAccount().numOfHouses() > 0 || player.getAccount().numOfHotels() > 0) {
 
             int counter = 0;
@@ -183,7 +179,7 @@ public class GameHandler {
                     guiHandler.printMessage("Du har ingen huse at sælge");
                 }
             }
-    }
+    } */
 
     public void playersRound(Player player, int faceValue1, int faceValue2)
     {

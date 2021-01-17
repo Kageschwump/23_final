@@ -93,6 +93,7 @@ public class GameBoard {
     {
         PropertySquare propertySquare = findProp(propName);
         propertySquare.removeOwner();
+
     }
 
     public GameSquare[] findPlayerProperties(String[] propNames)
