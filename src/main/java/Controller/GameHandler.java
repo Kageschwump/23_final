@@ -100,7 +100,6 @@ public class GameHandler {
         String[] properties = new String[player.getAccount().amountOfProperties()];
         int u = 0;
         int o = 0;
-        int counter = 0;
 
         if (player.getAccount().amountOfProperties() > 0) {
             for (int i = 0; i < player.getAccount().getProperties().length; i++) {
