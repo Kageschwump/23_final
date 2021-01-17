@@ -24,7 +24,8 @@ public class PriceCard extends ChanceCard {
     public void cardFunction(Player player) {
         int value;
         value = (pricePrHouse * player.getAccount().numOfHouses()) + (pricePrHotel * player.getAccount().numOfHotels());
-        player.getAccount().updateScore((-1) * value);
+        player.getAccount().updateScore(-value);
+        player.getGuiPlayer().setBalance(player.getAccount().getBalance());
     }
 
     @Override

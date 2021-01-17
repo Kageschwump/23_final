@@ -26,8 +26,25 @@ public class ChanceCardTests
         }
 
         Assert.assertTrue(condition);
-
-
     }
 
+    @Test
+    public void priceCardFunktionTest()
+    {
+        Player player = new Player(1,"HC",22,null,3501);
+        boolean condition = false;
+        player.getAccount().addHouse(3);
+        player.getAccount().addHotel();
+
+        ChanceCard chanceCard = chancecardHandler.getCards()[0];
+
+        chanceCard.cardFunction(player);
+
+        if(player.getAccount().getBalance() == 1)
+        {
+            condition = true;
+        }
+
+        Assert.assertTrue(condition);
+    }
 }
