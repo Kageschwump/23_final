@@ -102,6 +102,8 @@ public class PropertySquare extends GameSquare {
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
             owner.getAccount().addHotel();
             guiHandler.printMessage("Du har nu et hotel");
+        } else{
+            guiHandler.printMessage("Feltet har allerede et hotel! Kan ikke udvide mere!");
         }
 
     }
