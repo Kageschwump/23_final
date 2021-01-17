@@ -28,8 +28,13 @@ public class JailCard extends ChanceCard {
             player.getAccount().setJailfree(true);
         } else
             {
-                player.setPlacement(10);
-                player.setPrison(true);
+                if(player.getAccount().isJailfree())
+                {
+                    player.getAccount().setJailfree(false);
+                } else {
+                    player.setPlacement(10);
+                    player.setPrison(true);
+                }
             }
 
     }
