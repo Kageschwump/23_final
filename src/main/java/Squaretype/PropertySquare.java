@@ -91,7 +91,7 @@ public class PropertySquare extends GameSquare {
             houses++;
             fieldType.setHouses(houses);
             owner.getAccount().updateScore(-1 * housePrise);
-            owner.getAccount().addHouse();
+            owner.getAccount().addHouse(1);
             guiHandler.printMessage("Du har nu købt et hus");
         } else {
             fieldType.setHotel(true);
@@ -164,6 +164,7 @@ public class PropertySquare extends GameSquare {
     {
         if(houses >= numOfHousesToSell) {
             houses =- numOfHousesToSell;
+            owner.getAccount().addHouse(-numOfHousesToSell);
             owner.getAccount().updateScore((housePrise / 2) * numOfHousesToSell);
         }
     }

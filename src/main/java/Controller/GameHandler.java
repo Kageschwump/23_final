@@ -119,20 +119,6 @@ public class GameHandler {
 
             }
 
-           // for(int i = 0; i < player.getAccount().amountOfProperties(); i++){
-           //     int o = 0;
-           //     if (player.getAccount().getProperties()[o][0] != null){
-            //        properties[i] = player.getAccount().getProperties()[o][0];
-           //     }
-           // }
-
-           // for (int i = 0; i < player.getAccount().amountOfProperties(); i++) {
-            //    if (gameBoard.getSquares()[i].getName().equals(player.getAccount().getProperties()[counter][0])) {
-            //        properties[counter] = gameBoard.getSquares()[i].getName();
-             //       counter++;
-              //  }
-           // }
-
             numOfPropWithoutHouses = gameBoard.findPlayerProperties(properties).length - gameBoard.playerPropWithHouses(properties).length;
             String[] choices = new String[numOfPropWithoutHouses];
             counter = 0;

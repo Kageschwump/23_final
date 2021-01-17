@@ -100,9 +100,9 @@ public class Account {
         return breweryProp;
     }
 
-    public void addHouse()
+    public void addHouse(int housesToAdd)
     {
-        houses++;
+        houses += housesToAdd;
     }
 
     public void addHotel()
