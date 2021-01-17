@@ -36,7 +36,6 @@ public class PropertySquare extends GameSquare {
         fieldType = new GUI_Street(name, priceString, description, priceString, bgColor, fgColor);
     }
 
-    //Lav Player-klassen, og find ud af hvilken color der skal bruges i getColor super-klassen//
 
     @Override
     public void function(Player player, GUIHandler guiHandler) {
