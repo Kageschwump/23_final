@@ -86,14 +86,14 @@ public class PropertySquare extends GameSquare {
 
     public void purchaseHouse(GUIHandler guiHandler)
     {
-        if(houses < 5)
+        if(houses < 4)
         {
             houses++;
             fieldType.setHouses(houses);
             owner.getAccount().updateScore(-1 * housePrise);
             owner.getAccount().addHouse(1);
             guiHandler.printMessage("Du har nu købt et hus");
-        } else {
+        } else if(houses == 4){
             fieldType.setHotel(true);
             owner.getAccount().updateScore(-1 * housePrise);
             owner.getAccount().addHotel();
