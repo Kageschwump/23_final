@@ -114,6 +114,7 @@ public class GameHandler {
 
             }
 
+
         /*numOfProp = u + 1 ;
         String[] choices = new String[numOfProp];
         for (int i = 0; i < numOfProp; i++) {

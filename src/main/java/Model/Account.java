@@ -33,17 +33,12 @@ public class Account {
 
     public void deleteProperty(String propertyName)
     {
-        String[][] newPropArray = new String[24][2];
-        int counter = 0;
-        for(int i = 0; i < properties.length; i++) {
-
-            if(properties[i][0] != propertyName){
-                newPropArray[counter][0] = properties[i][0];
-                newPropArray[counter][1] = properties[i][1];
-                counter++;
-            }
-            properties = newPropArray;
-        }
+       for(int i = 0; i < 24; i++){
+           if(properties[i][0] == propertyName){
+               properties[i][0] = null;
+               properties[i][1] = null;
+           }
+       }
     }
 
     public String[][] getProperties() {
