@@ -42,7 +42,7 @@ public class PropertySquare extends GameSquare {
     public void function(Player player, GUIHandler guiHandler) {
         fieldType.setCar(player.getGuiPlayer(),true);
         String selection;
-        if (propertySquareNotOwned()) {
+        if (propertySquareNotOwned() && player.getAccount().getBalance() > price) {
             selection = guiHandler.getGui().getUserSelection("Vil du købe " + getName() + "?", "Ja", "Nej");
                 switch (selection){
                 case ("Ja"):
@@ -57,14 +57,12 @@ public class PropertySquare extends GameSquare {
                 case ("Nej"):
                     break;
             }
-        } else if(propertySquareNotOwned() && player.getAccount().getBalance()< price){
-            guiHandler.printMessage("du har ikke nok penge til at købe " + name);
         } else if (player != owner) {
             player.getAccount().updateScore(-rent[houses]);
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
             owner.getAccount().updateScore(rent[houses]);
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
-        } else if(checkPairs(player) && houses != 5)
+        } else if(checkPairs(player) && houses != 5 && player.getAccount().getBalance() > housePrise)
         {
             selection = guiHandler.getGui().getUserSelection("Vil du købe et hus på " + getName() + "?" + housePrise + " kr", "Ja", "Nej");
             switch (selection){

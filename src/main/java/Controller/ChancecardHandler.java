@@ -40,7 +40,7 @@ public class ChancecardHandler
         cards[20] = new PayCard("Præmieobligation","Modtag","Deres præmieobligation er udtrykket. De modtager 1000 kr af banken",+1000);
         cards[21] = new PayCard("Præmieobligation","Modtag","Deres præmieobligation er udtrykket. De modtager 1000 kr af banken",+1000);
         cards[22] = new PayCard("Auktion","Modtag","De har solgt nogle gamle møbler på auktion. Modtag 1000 kr af banken",+1000);
-        cards[23] = new PayCard("Nyttehaven","Modtag","Værdien af egen avl fra nyttehaven udgør 200 k, som De modtager af banken",+200);
+        cards[23] = new PayCard("Nyttehaven","Modtag","Værdien af egen avl fra nyttehaven udgør 200 kr, som De modtager af banken",+200);
         cards[24] = new TransactionCard("Fødselsdag","Modtag","Det er Deres fødselsdag. Modtag af hver medspiller 200 kr",+200);
         cards[25] = new TransactionCard("Fest","Modtag","De har lagt penge ud til et sammenskudsgilde. Mærkværdigvis betaler alle straks. Modtag fra hver medspiller 500 kr",+500);
         cards[26] = new TransactionCard("Fest","Modtag","De skal holde fammiliefest og får et tilskud fra hver medspiller på 500 kr",+500);
