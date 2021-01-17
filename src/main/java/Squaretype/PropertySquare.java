@@ -57,7 +57,7 @@ public class PropertySquare extends GameSquare {
                 case ("Nej"):
                     break;
             }
-        } else if (player != owner) {
+        } else if (player != owner && owner != null) {
             player.getAccount().updateScore(-rent[houses]);
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
             owner.getAccount().updateScore(rent[houses]);
@@ -72,6 +72,9 @@ public class PropertySquare extends GameSquare {
                 case ("Nej"):
                     break;
             }
+        }
+        else{
+            guiHandler.printMessage("Du har ikke nok penge til at købe denne ejendom");
         }
     }
 
