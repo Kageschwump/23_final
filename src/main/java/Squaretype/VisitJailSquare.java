@@ -1,5 +1,6 @@
 package Squaretype;
 
+import Controller.GUIHandler;
 import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Field;
@@ -20,8 +21,12 @@ public class VisitJailSquare extends GameSquare {
     }
 
     @Override
-    public String function(Player player) {
-        return "VisitJailSquare";
+    public void function(Player player, GUIHandler guiHandler) {
+        fieldType.setCar(player.getGuiPlayer(),true);
+        if(!player.isPrison())
+        {
+            guiHandler.printMessage(description);
+        }
     }
 
     @Override
@@ -42,5 +47,10 @@ public class VisitJailSquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    @Override
+    public void removeOwner() {
+
     }
 }

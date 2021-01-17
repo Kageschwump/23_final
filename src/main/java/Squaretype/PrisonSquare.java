@@ -1,5 +1,6 @@
 package Squaretype;
 
+import Controller.GUIHandler;
 import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Field;
@@ -19,8 +20,21 @@ public class PrisonSquare extends GameSquare {
     public PrisonSquare(){ fieldType = new GUI_Jail("default", name, "Gå i fængsel", description, bgColor, fgColor); }
 
     @Override
-    public String function(Player player) {
-        return "PrisonSquare";
+    public void function(Player player, GUIHandler guiHandler) {
+        fieldType.setCar(player.getGuiPlayer(),true);
+
+        guiHandler.printMessage(description);
+        if(player.getAccount().isJailfree())
+        {
+            guiHandler.printMessage(player.getName() + " Benådes fra fængsel. Heldige æsel");
+            player.getAccount().setJailfree(false);
+        }else
+            {
+                player.setPlacement(10);
+                player.setPrison(true);
+                fieldType.removeAllCars();
+            }
+
     }
 
     @Override
@@ -41,6 +55,11 @@ public class PrisonSquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    @Override
+    public void removeOwner() {
+
     }
 }
 

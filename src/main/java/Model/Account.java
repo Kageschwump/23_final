@@ -1,55 +1,57 @@
 package Model;
 
-import Squaretype.PropertySquare;
+import java.awt.*;
 
 public class Account {
     private int balance;
-    private PropertySquare[] properties;
+    private String[][] properties;
+    private String[] shippingProp;
+    private String[] breweryProp;
+    private int houses;
+    private int hotel;
     private boolean jailfree;
 
     public Account(int balance){
         this.balance = balance;
-        properties = new PropertySquare[1];
+        // 2d array med property navn og farve
+        properties = new String[24][2];
+        breweryProp = new String[2];
+        shippingProp = new String[4];
     }
 
-    public void addProperty(PropertySquare property)
+    public void addProperty(String propertyName, Color color)
     {
-        PropertySquare[] arrayNew = new PropertySquare[properties.length + 1];
-        for (int i = 0; i < properties.length; i++)
-        {
-            arrayNew[i] = properties[i];
-        }
-        properties = arrayNew;
-    }
-
-    public void deleteProperty(PropertySquare property)
-    {
-        PropertySquare[] arrayNew = new PropertySquare[properties.length - 1];
-        for (int i = 0; i < properties.length; i++)
-        {
-            if(!properties[i].getName().equals(property.getName()))
+        for(int i = 0; i < properties.length; i++) {
+            if (properties[i][0] == null)
             {
-                arrayNew[i] = properties[i];
-            }
-
-        }
-        properties = arrayNew;
-    }
-
-    public PropertySquare readProperty(String name)
-    {
-        PropertySquare property = null;
-        for (int i = 0; i < properties.length; i++)
-        {
-            if(name.equals(properties[i].getName())) {
-                property = properties[i];
+                properties[i][0] = propertyName;
+                properties[i][1] = color.toString();
                 break;
             }
         }
-        return property;
     }
 
-    public PropertySquare[] getProperties() {
+    public void deleteProperty(String propertyName)
+    {
+        String[][] newPropArray = new String[24][2];
+        int counter = 0;
+        for(int i = 0; i < properties.length; i++) {
+
+            if(properties[i][0] == propertyName){
+                newPropArray[counter][0] = null;
+                newPropArray[counter][1] = null;
+                counter++;
+            }
+            else{
+                newPropArray[counter][0] = properties[i][0];
+                newPropArray[counter][1] = properties[i][1];
+                counter++;
+            }
+            properties = newPropArray;
+        }
+    }
+
+    public String[][] getProperties() {
         return properties;
     }
 
@@ -61,6 +63,75 @@ public class Account {
 
     public void setJailfree(boolean jailfree) {
         this.jailfree = jailfree;
+    }
+
+    public boolean isJailfree() {
+        return jailfree;
+    }
+
+    public void addShipping(String propertyName)
+    {
+        for(int i = 0; i < shippingProp.length; i++) {
+            if (shippingProp[i] == null)
+            {
+                shippingProp[i] = propertyName;
+                break;
+            }
+        }
+    }
+
+    public void addBrewery(String propertyName)
+    {
+        for(int i = 0; i < breweryProp.length; i++) {
+            if (breweryProp[i] == null)
+            {
+                breweryProp[i] = propertyName;
+                break;
+            }
+        }
+    }
+
+    public String[] getShippingProp()
+    {
+        return shippingProp;
+    }
+
+    public String[] getBreweryProp() {
+        return breweryProp;
+    }
+
+    public void addHouse()
+    {
+        houses++;
+    }
+
+    public void addHotel()
+    {
+        hotel++;
+    }
+
+    public int numOfHouses()
+    {
+        return houses;
+    }
+
+    public int numOfHotels()
+    {
+        return hotel;
+    }
+
+    public int amountOfProperties()
+    {
+        int counter = 0;
+        for(int i = 0; i < properties.length; i++)
+        {
+            if(properties[i][0] != null)
+            {
+                counter++;
+            }
+        }
+
+        return counter;
     }
 
 }

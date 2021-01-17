@@ -8,6 +8,7 @@ public class Player {
     private int age;
     private String name;
     private Account account;
+    private boolean prison;
     private GUI_Car car;
     private GUI_Player player;
     private int placement;
@@ -20,6 +21,7 @@ public class Player {
         this.age = age;
         this.player = new GUI_Player(name, startBalance, car);
         this.car = car;
+        prison = false;
         account = new Account(startBalance);
     }
 
@@ -57,5 +59,25 @@ public class Player {
     public Account getAccount() {
         return account;
     }
+
+    public boolean isPrison() {
+        return prison;
+    }
+
+    public void setPrison(boolean prison) {
+        this.prison = prison;
+    }
+
+    public int getLastRoll() {
+        return lastRoll;
+    }
+
+    public void setLastRoll(int lastRoll) {
+        this.lastRoll = lastRoll;
+    }
+
+    int lastRoll;
+
+
 
 }

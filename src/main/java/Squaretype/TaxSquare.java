@@ -1,5 +1,6 @@
 package Squaretype;
 
+import Controller.GUIHandler;
 import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Chance;
@@ -14,15 +15,22 @@ public class TaxSquare extends GameSquare {
     private Color bgColor = Color.white;
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
+    private int tax;
 
-    public TaxSquare()
+    public TaxSquare(String name, int tax)
     {
         fieldType = new GUI_Tax(name,"",description,bgColor,fgColor);
+        this.name = name;
+        this.tax = tax;
     }
 
     @Override
-    public String function(Player player) {
-        return "TaxSquare";
+    public void function(Player player, GUIHandler guiHandler) {
+        fieldType.setCar(player.getGuiPlayer(),true);
+        guiHandler.printMessage(description + " Der bliver trukket " + tax + " fra din konto");
+        player.getAccount().updateScore(-tax);
+        player.getGuiPlayer().setBalance(player.getAccount().getBalance());
+
     }
 
     @Override
@@ -43,5 +51,10 @@ public class TaxSquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    @Override
+    public void removeOwner() {
+
     }
 }

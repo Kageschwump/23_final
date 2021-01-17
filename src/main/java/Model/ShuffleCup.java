@@ -4,6 +4,7 @@ public class ShuffleCup {
     private Dice dice1;
     private Dice dice2;
     private int value;
+    private int lastRoll;
 
     public ShuffleCup(){
         Dice dice1 = new Dice(3);
@@ -16,6 +17,7 @@ public class ShuffleCup {
         dice1.setFaceValue(dice1.roll());
         dice2.setFaceValue(dice2.roll());
         value = dice1.getFaceValue() + dice2.getFaceValue();
+        setLastRoll(value);
         return value;
     }
 
@@ -30,5 +32,14 @@ public class ShuffleCup {
     public int getValue(){
         return value;
     }
+
+    public int getLastRoll() {
+        return lastRoll;
+    }
+
+    public void setLastRoll(int lastRoll) {
+        this.lastRoll = lastRoll;
+    }
+
 
 }

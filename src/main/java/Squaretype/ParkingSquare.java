@@ -1,5 +1,6 @@
 package Squaretype;
 
+import Controller.GUIHandler;
 import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Field;
@@ -7,6 +8,7 @@ import gui_fields.GUI_Refuge;
 
 import javax.print.attribute.standard.PresentationDirection;
 import java.awt.*;
+import java.security.Guard;
 
 public class ParkingSquare extends GameSquare {
 
@@ -22,9 +24,10 @@ public class ParkingSquare extends GameSquare {
     }
 
     @Override
-    public String function(Player player)
+    public void function(Player player, GUIHandler guiHandler)
     {
-        return "ParkingSquare";
+        fieldType.setCar(player.getGuiPlayer(),true);
+        guiHandler.printMessage(description + " "+ player.getName());
     }
 
     @Override
@@ -45,5 +48,10 @@ public class ParkingSquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    @Override
+    public void removeOwner() {
+
     }
 }

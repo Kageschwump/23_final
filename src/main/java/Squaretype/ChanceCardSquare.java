@@ -1,9 +1,8 @@
 package Squaretype;
 
+import Controller.GUIHandler;
 import Model.ChanceCard;
-import Model.Chancecards.JailCard;
-import Model.Chancecards.PayCard;
-import Model.Chancecards.PriceCard;
+import Model.Chancecards.*;
 import Model.GameSquare;
 import Model.Player;
 import gui_fields.GUI_Chance;
@@ -19,25 +18,20 @@ public class ChanceCardSquare extends GameSquare {
     private Color bgColor = Color.orange;
     private Color fgColor = Color.black;
     private GUI_Field fieldType;
-    private ChanceCard[] chanceCards = new ChanceCard[46];
 
     public ChanceCardSquare()
     {
-        fieldType = new GUI_Chance("?", "Chancen", "prøv lykken, tag et kort", bgColor, fgColor);
-        createChanceCards();
-    }
-
-    public void createChanceCards()
-    {
-        chanceCards[0] = new PriceCard("Oliepriser","Priser stiger", "Oliepriserne er steget, og du skal betale 500 kr pr hus og 2000 kr pr hotel",500,2000);
-        chanceCards[1] = new PriceCard("Ejendomsskat","Priser stiger", "Ejendomsskatten er steget. Ekstraudgifterne er: 800 kr pr hus, 2300 kr pr hotel",800,2300);
-        chanceCards[2] = new PayCard("Fuldt stop","Betal","De har kørt frem for 'fuldt stop', betal 1000 kr i bøde", -1000);
-        chanceCards[3] = new PayCard("Fuldt stop","Betal","De har kørt frem for 'fuldt stop', betal 1000 kr i bøde", -1000);
+        fieldType = new GUI_Chance(name, subText, description, bgColor, fgColor);
     }
 
     @Override
-    public String function(Player player) {
-        return "ChanceCardSquare";
+    public void function(Player player, GUIHandler guiHandler) {
+
+        fieldType.setCar(player.getGuiPlayer(),true);
+        int cardNum = super.getChancecardHandler().drawCard();
+
+        guiHandler.printMessage( player.getName() + " trak et kort! " + super.getChancecardHandler().getCards()[cardNum].getDesc());
+        super.getChancecardHandler().getCards()[cardNum].cardFunction(player);
     }
 
     @Override
@@ -58,5 +52,10 @@ public class ChanceCardSquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    @Override
+    public void removeOwner() {
+
     }
 }
