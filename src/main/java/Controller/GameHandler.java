@@ -48,6 +48,25 @@ public class GameHandler {
             switch (playerChoice) {
                 case "Rul":
                     playersRound(player, faceValue1, faceValue2);
+                    if(player.getAccount().getBalance() < 0)
+                    {
+                        if(player.getAccount().getProperties().length > 0)
+                        {
+                            guiHandler.printMessage(player.getName() +" er gået konkurs! Du bliver nødt til at sælge ejendomme!");
+                            while (player.getAccount().getBalance() < 0 && player.getAccount().getProperties().length > 0) {
+                                sellProperty(player);
+                                if(player.getAccount().getProperties().length==0 && player.getAccount().getBalance() < 0)
+                                {
+                                    guiHandler.printMessage(player.getName() + " er gået fallit og er nu ude af spillet");
+                                    guiHandler.resetCars(player, playerHandler.getPlayers(), gameBoard.getFields()[player.getPlacement()]);
+                                    playerHandler.removePlayer(player);
+                                } else if(player.getAccount().getBalance() >= 0)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
                     haveRolled = true;
                     break;
 
@@ -79,8 +98,7 @@ public class GameHandler {
                 starter = 0;
             }
         }
-        // Determine winner metoden skal laves om
-        guiHandler.printMessage(ruleset.determineWinner(playerHandler.getPlayers()).getName() + " vandt!!!");
+        guiHandler.printMessage(playerHandler.getPlayers()[0].getName() + " vandt!!!");
 
     }
 
@@ -136,5 +154,6 @@ public class GameHandler {
                 gameBoard.getSquares()[player.getPlacement()].function(player, guiHandler);
             }
         }
+
     }
 }

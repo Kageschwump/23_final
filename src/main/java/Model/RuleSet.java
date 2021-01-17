@@ -40,19 +40,6 @@ public class RuleSet {
         return index;
     }
 
-    public Player determineWinner(Player[] players){
-        Player winner = null;
-        int max = 0;
-
-        for (int i = 0; i < players.length; i++){
-            if (players[i].getAccount().getBalance() > max){
-                winner = players[i];
-                max = players[i].getAccount().getBalance();
-            }
-        }
-        return winner;
-    }
-
     public void prisonEscape(Player player, String userInput, int facevalue1, int facevalue2)
     {
         int[] faceValues = new int[2];

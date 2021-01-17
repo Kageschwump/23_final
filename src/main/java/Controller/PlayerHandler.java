@@ -19,21 +19,6 @@ public class PlayerHandler {
         return players;
     }
 
-    public Player readPlayerByName(String name){
-        Player givenPlayer = null;
-
-        for (int i = 0; i < players.length; i++)
-        {
-            if (players[i].getName().equals(name))
-            {
-                givenPlayer = players[i];
-            }
-        }
-        return givenPlayer;
-    }
-
-    
-
     public void removePlayer(Player player){
         Player[] newPlayerArray = new Player[players.length - 1];
         int counter = 0;
