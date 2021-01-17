@@ -22,8 +22,8 @@ public class PlayerHandler {
     public void removePlayer(Player player){
         Player[] newPlayerArray = new Player[players.length - 1];
         int counter = 0;
-        for(int i = 0; i < newPlayerArray.length; i++){
-            if (!player.getName().equals(players[i].getName())){
+        for(int i = 0; i < players.length; i++){
+            if (player.getName() != players[i].getName()){
                 newPlayerArray[counter] = players[i];
                 counter++;
             }
