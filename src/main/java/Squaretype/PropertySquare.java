@@ -90,11 +90,13 @@ public class PropertySquare extends GameSquare {
             houses++;
             fieldType.setHouses(houses);
             owner.getAccount().updateScore(-1 * housePrise);
+            owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
             owner.getAccount().addHouse(1);
             guiHandler.printMessage("Du har nu købt et hus");
         } else if(houses == 4){
             fieldType.setHotel(true);
             owner.getAccount().updateScore(-1 * housePrise);
+            owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
             owner.getAccount().addHotel();
             guiHandler.printMessage("Du har nu et hotel");
         }
