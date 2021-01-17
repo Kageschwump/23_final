@@ -13,14 +13,15 @@ public class BrewerySquareTest {
         gameBoard.createGameBoard();
 
         Player player = new Player(1,"HC",22,null,3000);
-        Player player1 = new Player(2,"Jan",22,null,3000);
+
         BrewerySquare brewerySquare = (BrewerySquare) gameBoard.getSquares()[12];
 
-        brewerySquare.setOwner(player);
-        player1.setLastRoll(7);
-        player1.getAccount().updateScore(-brewerySquare.priceForLanding(player1.getLastRoll()));
+        player.getAccount().addBrewery("prop");
 
-        System.out.println(player1.getAccount().getBalance());
-        Assert.assertEquals(2300,player1.getAccount().getBalance());
+        brewerySquare.setOwner(player);
+        player.setLastRoll(7);
+        player.getAccount().updateScore(-brewerySquare.priceForLanding(player.getLastRoll()));
+
+        Assert.assertEquals(2300,player.getAccount().getBalance());
     }
 }

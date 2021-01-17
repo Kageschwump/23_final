@@ -34,7 +34,7 @@ public class ShippingSquare extends GameSquare {
         fieldType.setCar(player.getGuiPlayer(),true);
 
         String selection;
-        if (propertySquareNotOwned()) {
+        if (propertySquareNotOwned() && player.getAccount().getBalance() > price) {
             selection = guiHandler.getGui().getUserSelection("Vil du købe " + name + "?", "ja", "nej");
             switch (selection){
                 case ("ja"):

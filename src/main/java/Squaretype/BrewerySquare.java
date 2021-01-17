@@ -32,7 +32,7 @@ public class BrewerySquare extends GameSquare {
         fieldType.setCar(player.getGuiPlayer(),true);
 
         String selection;
-        if (propertySquareNotOwned()) {
+        if (propertySquareNotOwned() && player.getAccount().getBalance() > price) {
             selection = guiHandler.getGui().getUserSelection("vil du købe "+ name +"?", "ja", "nej");
             switch (selection){
                 case ("ja"):
@@ -64,13 +64,21 @@ public class BrewerySquare extends GameSquare {
     public int priceForLanding(int diceEyes)
     {
         int priceToPay = 0;
-        int numOfBrewery = owner.getAccount().getBreweryProp().length;
-        switch (Integer.toString(numOfBrewery))
+        int numOfBrewery = 0;
+
+        for(int i = 0; i < owner.getAccount().getBreweryProp().length; i++)
         {
-            case "1":
+            if(owner.getAccount().getBreweryProp()[i] != null)
+            {
+                numOfBrewery++;
+            }
+        }
+        switch (numOfBrewery)
+        {
+            case 1:
                 priceToPay = diceEyes * 100;
                 break;
-            case "2":
+            case 2:
                 priceToPay= diceEyes * 200;
                 break;
         }

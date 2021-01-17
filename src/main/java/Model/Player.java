@@ -12,8 +12,7 @@ public class Player {
     private GUI_Car car;
     private GUI_Player player;
     private int placement;
-
-
+    private int lastRoll;
 
     public Player(int id, String name, int age, GUI_Car car, int startBalance) {
         this.name = name;
@@ -75,9 +74,4 @@ public class Player {
     public void setLastRoll(int lastRoll) {
         this.lastRoll = lastRoll;
     }
-
-    int lastRoll;
-
-
-
 }
