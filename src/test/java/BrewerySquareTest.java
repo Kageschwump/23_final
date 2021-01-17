@@ -20,6 +20,7 @@ public class BrewerySquareTest {
         player1.setLastRoll(7);
         player1.getAccount().updateScore(-brewerySquare.priceForLanding(player1.getLastRoll()));
 
+        System.out.println(player1.getAccount().getBalance());
         Assert.assertEquals(2300,player1.getAccount().getBalance());
     }
 }
