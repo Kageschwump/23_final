@@ -96,7 +96,6 @@ public class GameHandler {
 
     public void sellProperty(Player player) {
         String prop;
-        int numOfProp;
         String[] properties = new String[player.getAccount().amountOfProperties()];
         int u = 0;
 
