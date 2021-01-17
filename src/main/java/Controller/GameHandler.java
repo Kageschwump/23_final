@@ -89,13 +89,12 @@ public class GameHandler {
 
             round(playerHandler.getPlayers()[starter]);
             starter++;
-            if(playerHandler.getPlayers()[starter].getPlayerLost())
-            {
-                starter++;
-            }
             if(starter >= playerHandler.getPlayers().length)
             {
                 starter = 0;
+            } else if(playerHandler.getPlayers()[starter].getPlayerLost())
+            {
+                starter++;
             }
         }
         guiHandler.printMessage(ruleset.determineWinner(playerHandler.getPlayers()).getName() + " vandt!!!");
