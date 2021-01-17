@@ -71,8 +71,7 @@ public class PropertySquare extends GameSquare {
                 case ("Nej"):
                     break;
             }
-        }
-        else{
+        } else if (owner != player && player.getAccount().getBalance() < price){
             guiHandler.printMessage("Du har ikke nok penge til at købe denne ejendom");
         }
     }
