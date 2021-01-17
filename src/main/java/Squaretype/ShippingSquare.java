@@ -48,7 +48,7 @@ public class ShippingSquare extends GameSquare {
                 case ("nej"):
                     break;
             }
-        } else if (player != owner) {
+        } else if (player != owner && owner != null) {
             player.getAccount().updateScore(-1 * priceForLanding());
             player.getGuiPlayer().setBalance(player.getAccount().getBalance());
             owner.getAccount().updateScore(priceForLanding());
