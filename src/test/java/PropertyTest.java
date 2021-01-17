@@ -33,5 +33,6 @@ public class PropertyTest
         int rentAfter = propertySquare.getRent()[0];
 
         Assert.assertEquals(200,rentAfter);
+        System.out.println(rentAfter);
     }
 }
