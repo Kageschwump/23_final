@@ -37,9 +37,16 @@ public class MoveCard extends ChanceCard {
             }
             player.updatePlacement(addedPlacement);
 
+            if(player.getPlacement() == -1){
+                player.setPlacement(39);
+            }
+
         } else
             {
                 player.updatePlacement(placement);
+                if(player.getPlacement() == -1){
+                    player.setPlacement(39);
+                }
             }
     }
 
