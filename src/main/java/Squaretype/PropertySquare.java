@@ -20,6 +20,7 @@ public class PropertySquare extends GameSquare {
     private GUI_Street fieldType;
     private int housePrise;
     private int houses;
+    private boolean hotel;
 
     public PropertySquare(String name, int price, int rent, String description, Color bgColor, Color fgColor,int housePrises, int rentHouse1, int rentHouse2, int rentHouse3, int rentHouse4, int rentHotel)
     {
@@ -32,6 +33,7 @@ public class PropertySquare extends GameSquare {
         this.housePrise = housePrises;
         this.rent = new int[]{rent, rentHouse1, rentHouse2, rentHouse3, rentHouse4, rentHotel};
         houses = 0;
+        hotel = false;
 
         fieldType = new GUI_Street(name, priceString, description, priceString, bgColor, fgColor);
     }
@@ -93,8 +95,9 @@ public class PropertySquare extends GameSquare {
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
             owner.getAccount().addHouse(1);
             guiHandler.printMessage("Du har nu købt et hus");
-        } else if(houses == 4){
+        } else if(houses == 4 && !hotel){
             fieldType.setHotel(true);
+            hotel = true;
             owner.getAccount().updateScore(-1 * housePrise);
             owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
             owner.getAccount().addHotel();
@@ -172,10 +175,6 @@ public class PropertySquare extends GameSquare {
     public int[] getRent()
     {
         return rent;
-    }
-
-    public int getHousePrise(){
-        return housePrise;
     }
 }
 
