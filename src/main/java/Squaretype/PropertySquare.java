@@ -160,7 +160,7 @@ public class PropertySquare extends GameSquare {
         owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
         owner = null;
         houses = 0;
-        fieldType.;
+        fieldType.setBorder(null);
     }
 
     public void sellHouses(int numOfHousesToSell)
