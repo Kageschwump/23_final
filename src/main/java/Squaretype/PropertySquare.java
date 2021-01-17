@@ -156,8 +156,11 @@ public class PropertySquare extends GameSquare {
     @Override
     public void removeOwner() {
         owner.getAccount().updateScore(price/2);
+        owner.getAccount().updateScore((getHouses()*housePrise)/2);
         owner.getGuiPlayer().setBalance(owner.getAccount().getBalance());
         owner = null;
+        houses = 0;
+        fieldType.;
     }
 
     public void sellHouses(int numOfHousesToSell)
