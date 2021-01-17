@@ -32,9 +32,7 @@ public class PlayerHandler {
         return givenPlayer;
     }
 
-    public void updatePlacement(int newPlacement, Player player){
-        player.updatePlacement(newPlacement);
-    }
+    
 
     public void removePlayer(Player player){
         Player[] newPlayerArray = new Player[players.length - 1];

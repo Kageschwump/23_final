@@ -96,7 +96,7 @@ public class GUIHandler {
     }
 
     public void playerRoll(String playername){
-        gui.getUserButtonPressed("Din tur " + playername + "!", "Rul");
+        gui.getUserButtonPressed(playername + ", kast med terningerne!", "rul");
     }
 
     public void getRoll(int faceValue1, int faceValue2){

@@ -44,4 +44,9 @@ public class StartSquare extends GameSquare {
         return Color.white;
     }
 
+    @Override
+    public void removeOwner() {
+
+    }
+
 }

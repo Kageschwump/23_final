@@ -23,7 +23,10 @@ public class VisitJailSquare extends GameSquare {
     @Override
     public void function(Player player, GUIHandler guiHandler) {
         fieldType.setCar(player.getGuiPlayer(),true);
-        guiHandler.printMessage(description);
+        if(!player.isPrison())
+        {
+            guiHandler.printMessage(description);
+        }
     }
 
     @Override
@@ -44,5 +47,10 @@ public class VisitJailSquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    @Override
+    public void removeOwner() {
+
     }
 }

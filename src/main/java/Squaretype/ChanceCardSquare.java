@@ -21,16 +21,17 @@ public class ChanceCardSquare extends GameSquare {
 
     public ChanceCardSquare()
     {
-        fieldType = new GUI_Chance(name, subText, "prøv lykken, tag et kort", bgColor, fgColor);
+        fieldType = new GUI_Chance(name, subText, description, bgColor, fgColor);
     }
 
     @Override
     public void function(Player player, GUIHandler guiHandler) {
-        fieldType.setCar(player.getGuiPlayer(),true);
 
-        ChanceCard chanceCard = super.getChancecardHandler().drawCard();
-        guiHandler.printMessage(player.getName() + " Trak et kort: " + chanceCard.getDesc());
-        chanceCard.cardFunction(player);
+        fieldType.setCar(player.getGuiPlayer(),true);
+        int cardNum = super.getChancecardHandler().drawCard();
+
+        guiHandler.printMessage( player.getName() + " trak et kort! " + super.getChancecardHandler().getCards()[cardNum].getDesc());
+        super.getChancecardHandler().getCards()[cardNum].cardFunction(player);
     }
 
     @Override
@@ -51,5 +52,10 @@ public class ChanceCardSquare extends GameSquare {
     @Override
     public Color getColor() {
         return bgColor;
+    }
+
+    @Override
+    public void removeOwner() {
+
     }
 }

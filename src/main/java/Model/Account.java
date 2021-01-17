@@ -1,7 +1,5 @@
 package Model;
 
-import Squaretype.PropertySquare;
-
 import java.awt.*;
 
 public class Account {
@@ -9,46 +7,51 @@ public class Account {
     private String[][] properties;
     private String[] shippingProp;
     private String[] breweryProp;
+    private int houses;
+    private int hotel;
     private boolean jailfree;
 
     public Account(int balance){
         this.balance = balance;
         // 2d array med property navn og farve
-        properties = new String[1][2];
+        properties = new String[24][2];
         breweryProp = new String[1];
         shippingProp = new String[1];
     }
 
     public void addProperty(String propertyName, Color color)
     {
-        if(properties.length == 1)
-        {
-            properties[0][0] = propertyName;
-            properties[0][1] = color.toString();
-        } else {
-            String[][] arrayNew = new String[properties.length][2];
-            for (int i = 0; i < properties.length; i++) {
-                arrayNew[i][0] = properties[i][0];
-                arrayNew[i][1] = properties[i][1];
+        for(int i = 0; i < properties.length; i++) {
+            if (properties[i][0] == null)
+            {
+                properties[i][0] = propertyName;
+                properties[i][1] = color.toString();
+                break;
             }
-            arrayNew[arrayNew.length][0] = propertyName;
-            arrayNew[arrayNew.length][1] = color.toString();
-            properties = arrayNew;
         }
     }
 
     public void deleteProperty(String propertyName)
     {
-        String[][] arrayNew = new String[properties.length - 1][2];
-        for (int i = 0; i < properties.length; i++)
-        {
-            if(!properties[i][0].equals(propertyName))
-            {
-                arrayNew[i][0] = properties[i][0];
-            }
+        String[][] newPropArray = new String[24][2];
+        int counter = 0;
+        for(int i = 0; i < properties.length; i++) {
+       //     if (properties[i][0] != null || properties[i][0] != propertyName)
+       //     {
 
+       //     }
+            if(properties[i][0] == propertyName){
+                newPropArray[counter][0] = null;
+                newPropArray[counter][1] = null;
+                counter++;
+            }
+            else{
+                newPropArray[counter][0] = properties[i][0];
+                newPropArray[counter][1] = properties[i][1];
+                counter++;
+            }
+            properties = newPropArray;
         }
-        properties = arrayNew;
     }
 
     public String[][] getProperties() {
@@ -71,31 +74,23 @@ public class Account {
 
     public void addShipping(String propertyName)
     {
-        if(shippingProp.length == 1)
-        {
-            shippingProp[0] = propertyName;
-        } else {
-            String[] arrayNew = new String[shippingProp.length];
-            for (int i = 0; i < shippingProp.length; i++) {
-                arrayNew[i] = shippingProp[i];
+        for(int i = 0; i < shippingProp.length; i++) {
+            if (shippingProp[i] == null)
+            {
+                shippingProp[i] = propertyName;
+                break;
             }
-            arrayNew[arrayNew.length] = propertyName;
-            shippingProp = arrayNew;
         }
     }
 
     public void addBrewery(String propertyName)
     {
-        if(breweryProp.length == 1)
-        {
-            breweryProp[0] = propertyName;
-        } else {
-            String[] arrayNew = new String[breweryProp.length];
-            for (int i = 0; i < breweryProp.length; i++) {
-                arrayNew[i] = breweryProp[i];
+        for(int i = 0; i < breweryProp.length; i++) {
+            if (breweryProp[i] == null)
+            {
+                breweryProp[i] = propertyName;
+                break;
             }
-            arrayNew[arrayNew.length] = propertyName;
-            breweryProp = arrayNew;
         }
     }
 
@@ -106,6 +101,40 @@ public class Account {
 
     public String[] getBreweryProp() {
         return breweryProp;
+    }
+
+    public void addHouse()
+    {
+        houses++;
+    }
+
+    public void addHotel()
+    {
+        hotel++;
+    }
+
+    public int numOfHouses()
+    {
+        return houses;
+    }
+
+    public int numOfHotels()
+    {
+        return hotel;
+    }
+
+    public int amountOfProperties()
+    {
+        int counter = 0;
+        for(int i = 0; i < properties.length; i++)
+        {
+            if(properties[i][0] != null)
+            {
+                counter++;
+            }
+        }
+
+        return counter;
     }
 
 }
