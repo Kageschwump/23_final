@@ -9,6 +9,7 @@ public class Player {
     private String name;
     private Account account;
     private boolean prison;
+    private boolean lost;
     private GUI_Car car;
     private GUI_Player player;
     private int placement;
@@ -73,5 +74,15 @@ public class Player {
 
     public void setLastRoll(int lastRoll) {
         this.lastRoll = lastRoll;
+    }
+
+    public void setPlayerLost()
+    {
+        lost = true;
+    }
+
+    public boolean getPlayerLost()
+    {
+        return lost;
     }
 }

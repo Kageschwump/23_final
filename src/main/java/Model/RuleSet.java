@@ -19,11 +19,21 @@ public class RuleSet {
 
     public boolean gameOver(Player[] players)
     {
-        if(players.length == 1){
-            return true;
-        }else{
-            return false;
+        boolean gameEnd = false;
+        int numOfPlayersLost = 0;
+
+        for(int i = 0; i < players.length; i++)
+        {
+            if(players[i].getPlayerLost())
+            {
+                numOfPlayersLost++;
+            }
         }
+        if(numOfPlayersLost == players.length - 1)
+        {
+            gameEnd = true;
+        }
+        return gameEnd;
     }
 
     public int determineStarter(Player[] players)
@@ -69,6 +79,19 @@ public class RuleSet {
                 guiHandler.printMessage("Du har betalt dig ud af fænslet");
                 break;
         }
+    }
+
+    public Player determineWinner(Player[] players)
+    {
+        Player winner = null;
+        for (int i = 0; i < players.length; i++)
+        {
+            if(!players[i].getPlayerLost())
+            {
+                winner = players[i];
+            }
+        }
+        return winner;
     }
 
 }

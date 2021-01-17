@@ -89,12 +89,16 @@ public class GameHandler {
 
             round(playerHandler.getPlayers()[starter]);
             starter++;
+            if(playerHandler.getPlayers()[starter].getPlayerLost())
+            {
+                starter++;
+            }
             if(starter >= playerHandler.getPlayers().length)
             {
                 starter = 0;
             }
         }
-        guiHandler.printMessage(playerHandler.getPlayers()[0].getName() + " vandt!!!");
+        guiHandler.printMessage(ruleset.determineWinner(playerHandler.getPlayers()).getName() + " vandt!!!");
 
     }
 
@@ -127,7 +131,7 @@ public class GameHandler {
         }
         else if(player.getAccount().getBalance() < 0){
             guiHandler.printMessage(player.getName() + " er gået fallit og er nu ude af spillet");
-            guiHandler.resetCars(player, playerHandler.getPlayers(), gameBoard.getFields()[player.getPlacement()]);
+            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),false);
             playerHandler.removePlayer(player);
         }
         else{

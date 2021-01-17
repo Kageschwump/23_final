@@ -18,5 +18,6 @@ public class GameOverTest
         playerHandler.removePlayer(player);
 
         Assert.assertEquals(1,playerHandler.getPlayers().length);
+        Assert.assertEquals("Jan",playerHandler.getPlayers()[0].getName());
     }
 }
