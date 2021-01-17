@@ -32,10 +32,10 @@ public class GameBoard {
         squares[3] = new PropertySquare("Hvidovrevej",1200,50,"Velkommen til Hvidovrevej", Color.blue, Color.black, 1000,250,750, 2250,4000,6000);
         squares[4] = new TaxSquare("IndkomstSkat",4000);
         squares[5] = new ShippingSquare("Scandlines","Helsingør-Helsingborg",500,4000);
-        squares[6] = new PropertySquare("Roskildevej",2000,100,"Velkommen til Roskildevej", Color.orange, Color.black,1000,600,1800,5400,8000,11000);
+        squares[6] = new PropertySquare("Roskildevej",2000,100,"Velkommen til Roskildevej", Color.cyan, Color.black,1000,600,1800,5400,8000,11000);
         squares[7] = new ChanceCardSquare();
-        squares[8] = new PropertySquare("Valby Langgade",2000,100,"Velkommen til Valby Langgade", Color.orange, Color.black,1000,600,1800,5400,8000,11000);
-        squares[9] = new PropertySquare("Allégade",2400,150,"Velkommen til Allégade", Color.orange, Color.black,1000,800,2000,6000,9000,12000);
+        squares[8] = new PropertySquare("Valby Langgade",2000,100,"Velkommen til Valby Langgade", Color.cyan, Color.black,1000,600,1800,5400,8000,11000);
+        squares[9] = new PropertySquare("Allégade",2400,150,"Velkommen til Allégade", Color.cyan, Color.black,1000,800,2000,6000,9000,12000);
         squares[10] = new VisitJailSquare();
         squares[11] = new PropertySquare("Frederiksberg Allé",2800,200,"Velkommen til Frederiksberg Allé", Color.green, Color.black,2000,1000,3000,9000,12500,15000);
         squares[12] = new BrewerySquare("Squash", 100,3000);
