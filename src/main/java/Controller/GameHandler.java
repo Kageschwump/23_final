@@ -113,22 +113,6 @@ public class GameHandler {
 
             }
 
-        /*numOfProp = u + 1 ;
-        String[] choices = new String[numOfProp];
-        for (int i = 0; i < numOfProp; i++) {
-
-
-                if(gameBoard.playerPropWithHouses(properties).length == 0) {
-                    choices[counter] = gameBoard.findPlayerProperties(properties)[i].getName();
-                    counter++;
-                }
-                else if(gameBoard.playerPropWithHouses(properties).length != 0) {
-                    if (gameBoard.findPlayerProperties(properties)[i].getName() != gameBoard.playerPropWithHouses(properties)[counter].getName()) {
-                        choices[counter] = gameBoard.findPlayerProperties(properties)[i].getName();
-                        counter++;
-                    }
-                }
-            } */
 
             prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge?", properties);
             player.getAccount().deleteProperty(prop);
@@ -138,47 +122,6 @@ public class GameHandler {
             guiHandler.printMessage("Du har ingen ejendomme at sælge");
         }
     }
-
-    /*public void sellHouse(Player player) {
-        if (player.getAccount().numOfHouses() > 0 || player.getAccount().numOfHotels() > 0) {
-
-            int counter = 0;
-            String[] playerProps = new String[player.getAccount().amountOfProperties()];
-
-            if (player.getAccount().amountOfProperties() > 0) {
-                int u = 0;
-                int o = 0;
-                if (player.getAccount().getProperties()[o][0] != null) {
-                    playerProps[u] = player.getAccount().getProperties()[o][0];
-                    o++;
-                    u++;
-                } else if (player.getAccount().getProperties() == null) {
-                    o++;
-                } else if (o >= player.getAccount().getProperties().length) {
-
-                }
-
-
-                    //for (int i = 0; i < gameBoard.getSquares().length; i++) {
-                    //   if (gameBoard.getSquares()[i].getName().equals(player.getAccount().getProperties()[counter][0])) {
-                    //      playerProps[counter] = gameBoard.getSquares()[i].getName();
-                    //       counter++;
-                    //   }
-                    //}
-
-                    PropertySquare[] propertySquares = gameBoard.playerPropWithHouses(playerProps);
-                    String[] playerPropsWithHouses = new String[propertySquares.length];
-                    for (int x = 0; x < propertySquares.length; x++) {
-                        playerPropsWithHouses[x] = propertySquares[x].getName();
-                    }
-                    String prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge et hus fra?", playerPropsWithHouses);
-                    gameBoard.findProp(prop).sellHouses(1);
-
-                } else {
-                    guiHandler.printMessage("Du har ingen huse at sælge");
-                }
-            }
-    } */
 
     public void playersRound(Player player, int faceValue1, int faceValue2)
     {
