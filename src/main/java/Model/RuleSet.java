@@ -72,7 +72,7 @@ public class RuleSet {
                     faceValues[0] = facevalue1;
                     faceValues[1] = facevalue2;
                     guiHandler.printMessage("Tilykke du er ude af fængslet");
-                    shuffleCup.roll();
+
                 } else
                     {
                         guiHandler.playerRoll(player.getName());

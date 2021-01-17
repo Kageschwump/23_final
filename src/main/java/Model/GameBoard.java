@@ -81,7 +81,7 @@ public class GameBoard {
         PropertySquare prop = null;
         for(int i = 0; i < squares.length; i++)
         {
-            if(squares[i].getName().equals(propName))
+            if(squares[i].getName() == propName)
             {
                 prop = (PropertySquare) squares[i];
             }
@@ -100,9 +100,12 @@ public class GameBoard {
         int counter = 0;
         PropertySquare[] propertySquares = new PropertySquare[propNames.length];
 
-        for(int i = 0; i < propNames.length; i++)
+        for(int i = 0; i < getSquares().length; i++)
         {
-            if(propNames[counter].equals(getSquares()[i].getName()))
+            if(propNames.length <= counter){
+                break;
+            }
+            else if(propNames[counter].equals(getSquares()[i].getName()))
             {
                 propertySquares[counter] = (PropertySquare) getSquares()[i];
                 counter++;

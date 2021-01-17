@@ -36,12 +36,21 @@ public class Account {
         String[][] newPropArray = new String[24][2];
         int counter = 0;
         for(int i = 0; i < properties.length; i++) {
-            if (properties[i][0] != null || !properties[i][0].equals(propertyName))
-            {
+       //     if (properties[i][0] != null || properties[i][0] != propertyName)
+       //     {
+
+       //     }
+            if(properties[i][0] == propertyName){
+                newPropArray[counter][0] = null;
+                newPropArray[counter][1] = null;
+                counter++;
+            }
+            else{
                 newPropArray[counter][0] = properties[i][0];
                 newPropArray[counter][1] = properties[i][1];
                 counter++;
             }
+            properties = newPropArray;
         }
     }
 
@@ -119,7 +128,7 @@ public class Account {
         int counter = 0;
         for(int i = 0; i < properties.length; i++)
         {
-            if(properties[i][0] == null)
+            if(properties[i][0] != null)
             {
                 counter++;
             }
