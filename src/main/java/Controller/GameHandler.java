@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.*;
-import Squaretype.PropertySquare;
 
 public class GameHandler {
 
@@ -9,11 +8,9 @@ public class GameHandler {
     private GameBoard gameBoard;
     private PlayerHandler playerHandler;
     private RuleSet ruleset;
-    private ChancecardHandler chanceCardHandler;
     private GUIHandler guiHandler;
 
     public GameHandler(){
-        this.chanceCardHandler = new ChancecardHandler();
         this.shuffleCup = new ShuffleCup();
         this.gameBoard = new GameBoard();
         gameBoard.createGameBoard();
@@ -95,12 +92,12 @@ public class GameHandler {
 
             round(playerHandler.getPlayers()[starter]);
             starter++;
-            if(starter >= playerHandler.getPlayers().length)
-            {
-                starter = 0;
-            } else if(playerHandler.getPlayers()[starter].getPlayerLost())
+            if(playerHandler.getPlayers()[starter].getPlayerLost())
             {
                 starter++;
+            } else if(starter == playerHandler.getPlayers().length)
+            {
+                starter = 0;
             }
         }
         guiHandler.printMessage(ruleset.determineWinner(playerHandler.getPlayers()).getName() + " vandt!!!");
