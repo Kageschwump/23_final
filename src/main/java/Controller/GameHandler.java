@@ -92,10 +92,14 @@ public class GameHandler {
 
             round(playerHandler.getPlayers()[starter]);
             starter++;
-            if(playerHandler.getPlayers()[starter].getPlayerLost())
+            if(starter == playerHandler.getPlayers().length) {
+                starter = 0;
+
+            } else if(playerHandler.getPlayers()[starter].getPlayerLost())
             {
                 starter++;
-            } else if(starter == playerHandler.getPlayers().length)
+            }
+            if(starter == playerHandler.getPlayers().length)
             {
                 starter = 0;
             }
