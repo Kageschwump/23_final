@@ -61,26 +61,23 @@ public class BrewerySquare extends GameSquare {
             return false;
     }
 
-    public int priceForLanding(int diceEyes)
-    {
+    public int priceForLanding(int diceEyes) {
         int priceToPay = 0;
         int numOfBrewery = 0;
-
-        for(int i = 0; i < owner.getAccount().getBreweryProp().length; i++)
-        {
-            if(owner.getAccount().getBreweryProp()[i] != null)
-            {
-                numOfBrewery++;
+        if (owner != null) {
+            for (int i = 0; i < owner.getAccount().getBreweryProp().length; i++) {
+                if (owner.getAccount().getBreweryProp()[i] != null) {
+                    numOfBrewery++;
+                }
             }
-        }
-        switch (numOfBrewery)
-        {
-            case 1:
-                priceToPay = diceEyes * 100;
-                break;
-            case 2:
-                priceToPay= diceEyes * 200;
-                break;
+            switch (numOfBrewery) {
+                case 1:
+                    priceToPay = diceEyes * 100;
+                    break;
+                case 2:
+                    priceToPay = diceEyes * 200;
+                    break;
+            }
         }
         return priceToPay;
     }
