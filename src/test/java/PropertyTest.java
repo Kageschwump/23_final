@@ -18,7 +18,7 @@ public class PropertyTest
         gameBoard.createGameBoard();
 
         Player player = new Player(1,"HC",22,null,3000);
-        Color color = Color.orange;
+        Color color = Color.cyan;
         String propName1 = "Roskildevej";
         String propName2 = "Valby Langgade";
         String propName3 = "Allégade";
