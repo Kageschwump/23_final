@@ -60,6 +60,12 @@ public class GameHandler {
                                 {
                                     break;
                                 }
+                                else if(player.getAccount().getBalance() < 0 && player.getAccount().amountOfProperties() <= 0) {
+                                    guiHandler.printMessage(player.getName() + " er gået fallit og er nu ude af spillet");
+                                    gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(), false);
+                                    playerHandler.removePlayer(player);
+                                    break;
+                                }
                             }
                         }
                     }
@@ -127,11 +133,6 @@ public class GameHandler {
             prop = guiHandler.getGui().getUserSelection("Hvilken ejendom vil du sælge?", properties);
             player.getAccount().deleteProperty(prop);
             gameBoard.resetOwnership(prop);
-        }
-        else if(player.getAccount().getBalance() < 0){
-            guiHandler.printMessage(player.getName() + " er gået fallit og er nu ude af spillet");
-            gameBoard.getFields()[player.getPlacement()].setCar(player.getGuiPlayer(),false);
-            playerHandler.removePlayer(player);
         }
         else{
             guiHandler.printMessage("Du har ingen ejendomme at sælge");
