@@ -22,6 +22,7 @@ public class PlayerHandler {
     public void removePlayer(Player player){
 
         player.setPlayerLost();
+        player.setPlacement(60);
     }
 
 
