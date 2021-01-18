@@ -47,12 +47,9 @@ public class GUIHandler {
         String typeString;
         GUI_Car.Type type;
 
-        primaryColorString = gui.getUserSelection("Hvilken farve?", "Sort","Blå","Rød","Grå","Grøn","Gul");
+        primaryColorString = gui.getUserSelection("Hvilken farve?","Blå","Rød","Grå","Grøn","Gul");
         switch (primaryColorString)
         {
-            case ("Sort"):
-                primaryColor = Color.BLACK;
-                break;
             case("Blå"):
                 primaryColor = Color.BLUE;
                 break;
