@@ -5,16 +5,10 @@ import Controller.GUIHandler;
 
 public class RuleSet {
 
-    GameBoard gameBoard;
-    ChancecardHandler chancecardHandler;
     GUIHandler guiHandler;
-    ShuffleCup shuffleCup;
 
-    public RuleSet(GameBoard gameBoard, ChancecardHandler chanceCardHandler, GUIHandler guiHandler, ShuffleCup shuffleCup){
-        this.chancecardHandler = chanceCardHandler;
-        this.gameBoard = gameBoard;
+    public RuleSet(GUIHandler guiHandler){
         this.guiHandler = guiHandler;
-        this.shuffleCup = shuffleCup;
     }
 
     public boolean gameOver(Player[] players)

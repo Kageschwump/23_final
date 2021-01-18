@@ -18,7 +18,7 @@ public class GameHandler {
         this.gameBoard = new GameBoard();
         gameBoard.createGameBoard();
         guiHandler = new GUIHandler(gameBoard.createFields());
-        this.ruleset = new RuleSet(gameBoard, chanceCardHandler, guiHandler, shuffleCup);
+        this.ruleset = new RuleSet(guiHandler);
     }
 
     public void round(Player player)
