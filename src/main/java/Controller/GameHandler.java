@@ -89,11 +89,12 @@ public class GameHandler {
         }
 
         while (!ruleset.gameOver(playerHandler.getPlayers())) {
-
+            if(!playerHandler.getPlayers()[starter].getPlayerLost()){
             round(playerHandler.getPlayers()[starter]);
             starter++;
             if(starter == playerHandler.getPlayers().length) {
                 starter = 0;
+            }
 
             } else if(playerHandler.getPlayers()[starter].getPlayerLost())
             {
