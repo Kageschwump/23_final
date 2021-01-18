@@ -78,6 +78,8 @@ public class BrewerySquare extends GameSquare {
                     priceToPay = diceEyes * 200;
                     break;
             }
+        } else{
+            priceToPay = 0;
         }
         return priceToPay;
     }
